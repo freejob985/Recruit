@@ -75,10 +75,11 @@
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('verification_requests') }}" class="aiz-side-nav-link {{ areActiveRoutes(['verification_requests', 'verification_request_details'])}}">
                         <i class="las la-user-check aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{translate('Verification Requests')}}<a href="#"> <span class="badge">
-                            {{ DB::table('cities')->count() }}    
-                        </span></a></span>
+                        <span class="aiz-side-nav-text">{{translate('Verification Requests')}}<a href="#"> </a></span>
                     </a>
+                    <span class="badge">
+                        {{ DB::table('verifications')->where('verifications',"0")->count() }}    
+                    </span>
                 </li>
 
                 <li class="aiz-side-nav-item">
