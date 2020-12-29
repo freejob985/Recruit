@@ -78,7 +78,7 @@
                     <a href="{{ route('verification_requests') }}"
                         class="aiz-side-nav-link {{ areActiveRoutes(['verification_requests', 'verification_request_details'])}}">
                         <i class="las la-user-check aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{translate('Verification Requests')}} :: <span class="badge">
+                        <span class="aiz-side-nav-text">{{translate('Verification Requests')}} &nbsp; <span class="badge" style="background: #da612d;">
                                 {{ DB::table('verifications')->where('verified',"0")->count() }}
                             </span><a href="#"> </a></span>
                     </a>
