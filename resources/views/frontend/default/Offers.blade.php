@@ -115,6 +115,7 @@
     .form-group textarea.form-input {
         height: 150px;
     }
+
     .be-ava-comment {
         width: 60px;
         height: 60px;
@@ -125,6 +126,7 @@
 <div class="container">
     <div class="be-comment-block">
         <h1 class="comments-title">Comments (3)</h1>
+        @foreach(DB::table('project_bids')->orderBy('id','desc')->get() as $item_project_bids)
         <div class="be-comment">
             <div class="be-img-comment">
                 <a href="blog-detail-2.html">
@@ -136,31 +138,10 @@
                     <a href="blog-detail-2.html">Ravi Sah</a>
                 </span>
                 <p class="be-comment-text">
-                    Pellentesque gravida tristique ultrices.
-                    Sed blandit varius mauris, vel volutpat urna hendrerit id.
-                    Curabitur rutrum dolor gravida turpis tristique efficitur.
+                    {{ $item_project_bids->message}}
                 </p>
             </div>
         </div>
-
-        <div class="be-comment">
-            <div class="be-img-comment">
-                <a href="blog-detail-2.html">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
-                </a>
-            </div>
-            <div class="be-comment-content">
-                <span class="be-comment-name">
-                    <a href="blog-detail-2.html">Ravi Sah</a>
-                </span>
-                <p class="be-comment-text">
-                    Pellentesque gravida tristique ultrices.
-                    Sed blandit varius mauris, vel volutpat urna hendrerit id.
-                    Curabitur rutrum dolor gravida turpis tristique efficitur.
-                </p>
-            </div>
-        </div>
-
-        
+        @endforeach
     </div>
 </div>
