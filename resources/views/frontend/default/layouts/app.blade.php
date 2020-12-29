@@ -1,6 +1,6 @@
 @php
 
- setlocale(LC_TIME, "pt_PT.utf8");
+
 
 
 
