@@ -140,7 +140,7 @@
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
                     <p>
-                        <button type="button" class="btn btn-success btn-sm"> العرض المقدم  &nbsp; &nbsp; &nbsp; <span class="label label-default">{{ $item_project_bids->amount}}</span></button>
+                        <button type="button" class="btn btn-success btn-sm btn-block"> العرض المقدم  &nbsp; &nbsp; &nbsp; <span class="label label-default">{{ $item_project_bids->amount}}</span></button>
                     </p>
                 </p>
 
