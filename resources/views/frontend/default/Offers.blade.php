@@ -130,8 +130,14 @@
         <div class="be-comment">
             <div class="be-img-comment">
                 <a href="blog-detail-2.html">
-                    
-                    <img src="{{ custom_asset(get_current_user__($item_project_bids->bid_by_user_id,"photo")) }}" alt="" class="be-ava-comment">
+                    @if ($project->client->photo != null)
+                    <img src="{{ custom_asset(get_current_user__($item_project_bids->bid_by_user_id,"photo")) }}" alt=""
+                        class="be-ava-comment">
+
+                    @else
+                    <img src="{{ my_asset('assets/frontend/default/img/avatar-place.png') }}">
+
+                    @endif
                 </a>
             </div>
             <div class="be-comment-content">
@@ -141,7 +147,8 @@
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
                     <p>
-                        <button type="button" class="btn btn-success btn-sm btn-block"> العرض المقدم  &nbsp; &nbsp; &nbsp; <span class="label label-default">{{ $item_project_bids->amount}}</span></button>
+                        <button type="button" class="btn btn-success btn-sm btn-block"> العرض المقدم &nbsp; &nbsp;
+                            &nbsp; <span class="label label-default">{{ $item_project_bids->amount}}</span></button>
                     </p>
                 </p>
 
