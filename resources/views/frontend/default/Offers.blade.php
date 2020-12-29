@@ -115,6 +115,12 @@
     .form-group textarea.form-input {
         height: 150px;
     }
+    .be-ava-comment {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-top: 58%;
+    }
 </style>
 <div class="container">
     <div class="be-comment-block">
