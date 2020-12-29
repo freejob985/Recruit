@@ -130,12 +130,13 @@
         <div class="be-comment">
             <div class="be-img-comment">
                 <a href="blog-detail-2.html">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+                    
+                    <img src="{{ custom_asset(get_current_user__($item_project_bids->bid_by_user_id,"photo")) }}" alt="" class="be-ava-comment">
                 </a>
             </div>
             <div class="be-comment-content">
                 <span class="be-comment-name">
-                    <a href="blog-detail-2.html">{{ get_current_user__($item_project_bids->bid_by_user_id,"name") }}</a>
+                    <a href="#">{{ get_current_user__($item_project_bids->bid_by_user_id,"name") }}</a>
                 </span>
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
