@@ -92,6 +92,9 @@
                                         </div>
                                     @endif
                                 @endforeach
+
+
+                                Actual location of offers
                             </div>
 						</div>
 					</div>
