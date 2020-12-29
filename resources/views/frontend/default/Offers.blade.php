@@ -135,7 +135,7 @@
                         class="be-ava-comment">
 
                     @else
-                    <img src="{{ my_asset('assets/frontend/default/img/avatar-place.png') }}">
+                    <img src="{{ my_asset('assets/frontend/default/img/avatar-place.png') }}"  class="be-ava-comment" >
 
                     @endif
                 </a>
