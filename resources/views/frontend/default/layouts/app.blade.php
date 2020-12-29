@@ -1,7 +1,7 @@
 @php
 
 
-Carbon::setlocale(Config::get('app.locale'))->now()->format('l j F Y H:i:s');
+Carbon::setlocale(Config::get('app.locale'));
 
 
 
