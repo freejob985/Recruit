@@ -139,6 +139,8 @@
                 </span>
                 <p class="be-comment-text">
                     {{ $item_project_bids->message}}
+                </p>
+                <p>
                     <button type="button" class="btn btn-success btn-sm">{{ $item_project_bids->amount}}</button>
                 </p>
             </div>
