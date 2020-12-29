@@ -55,14 +55,18 @@
                                                     checked
                                                 @endif onchange="applyFilter()"> {{ translate('Fixed Price') }}
                                                 <span class="aiz-square-check"></span>
-                                                <span class="float-right text-secondary fs-12">(200)</span>
+                                                <span class="float-right text-secondary fs-12" style="
+                                                display: none;
+                                            " >(200)</span>
                                             </label>
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox"  name="projectType[]" value="Long Term" @if (in_array('Long Term', $projectType))
                                                     checked
                                                 @endif onchange="applyFilter()"> {{ translate('Long Term') }}
                                                 <span class="aiz-square-check"></span>
-                                                <span class="float-right text-secondary fs-12">(200)</span>
+                                                <span class="float-right text-secondary fs-12" style="
+                                                display: none;
+                                            ">(200)</span>
                                             </label>
                                         </div>
                                     </div>
