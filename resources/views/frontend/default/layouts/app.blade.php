@@ -238,8 +238,7 @@ $lang = \App\Models\Language::where('code', $locale)->first();
 
 
 
-    <link rel="stylesheet" href="http://sub.digi-gate.com/public/assets/common/css/aiz-core.css">
-
+    <link rel="stylesheet" href="{{ my_asset('assets/common/css/aiz-core.css') }}">
     <script>
         var AIZ = AIZ || {};
     </script>
