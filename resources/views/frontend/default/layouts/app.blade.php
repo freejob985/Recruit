@@ -1,7 +1,7 @@
 @php
 
 
-Carbon::setlocale("sa");
+Carbon::setlocale(Config::get('app.locale'));
 
 
 
