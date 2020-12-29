@@ -72,7 +72,7 @@
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('verification_requests') }}" class="aiz-side-nav-link {{ areActiveRoutes(['verification_requests', 'verification_request_details'])}}">
                         <i class="las la-user-check aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{translate('Verification Requests')}}</span>
+                        <span class="aiz-side-nav-text">{{translate('Verification Requests')}}<a href="#">News <span class="badge">5</span></a></span>
                     </a>
                 </li>
 
