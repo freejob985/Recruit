@@ -126,7 +126,7 @@
 <div class="container">
     <div class="be-comment-block">
         <h1 class="comments-title">Comments (3)</h1>
-        @foreach(DB::table('project_bids')->orderBy('id','desc')->get() as $item_project_bids)
+        @foreach(DB::table('project_bids')->where('project_id', $project->id)->orderBy('id','desc')->get() as $item_project_bids)
         <div class="be-comment">
             <div class="be-img-comment">
                 <a href="blog-detail-2.html">
