@@ -78,7 +78,7 @@
                         <span class="aiz-side-nav-text">{{translate('Verification Requests')}}<a href="#"> </a></span>
                     </a>
                     <span class="badge">
-                        {{ DB::table('verifications')->where('verifications',"0")->count() }}    
+                        {{ DB::table('verifications')->where('verified',"0")->count() }}    
                     </span>
                 </li>
 
