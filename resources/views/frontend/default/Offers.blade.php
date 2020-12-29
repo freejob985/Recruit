@@ -125,8 +125,9 @@
 </style>
 <div class="container">
     <div class="be-comment-block">
-        <h1 class="comments-title">Comments (3)</h1>
-        @foreach(DB::table('project_bids')->where('project_id', $project->id)->orderBy('id','desc')->get() as $item_project_bids)
+        <h1 class="comments-title">اجمالي العروض المقدمة ({{ get_current_projects__($project->id,"bids") }})</h1>
+        @foreach(DB::table('project_bids')->where('project_id', $project->id)->orderBy('id','desc')->get() as
+        $item_project_bids)
         <div class="be-comment">
             <div class="be-img-comment">
                 <a href="blog-detail-2.html">
@@ -135,7 +136,7 @@
                         class="be-ava-comment">
 
                     @else
-                    <img src="{{ my_asset('assets/frontend/default/img/avatar-place.png') }}"  class="be-ava-comment" >
+                    <img src="{{ my_asset('assets/frontend/default/img/avatar-place.png') }}" class="be-ava-comment">
 
                     @endif
                 </a>

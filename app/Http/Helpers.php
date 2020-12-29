@@ -31,6 +31,15 @@ function get_current_user__($id,$coulam){
 }
 
 
+///The function is created to find out the get_current_projects__ data
+
+function get_current_projects__($id,$coulam){
+    return  $users = DB::table('projects')->where('id', $id)->value($coulam);     
+}
+
+
+
+
 
 
 
