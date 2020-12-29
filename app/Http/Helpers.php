@@ -27,9 +27,9 @@ function function_that_shortens_text_but_doesnt_cutoff_words($text, $length)
 
 ///The function is created to find out the user data
 function get_current_user__($id){
-    $users = DB::table('users')->where('id', $id)->value('email');
+    $users = DB::table('users')->where('id', $id)->value('name');
     return $users->name;
-    
+
      
 }
 
