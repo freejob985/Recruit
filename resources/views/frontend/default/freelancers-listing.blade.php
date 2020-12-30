@@ -35,7 +35,7 @@
                                         <label class="aiz-radio">
                                             <input type="radio" checked="checked" name="status"> {{ translate('Online Only') }}
                                             <span class="aiz-square-check"></span>
-                                            <span class="float-right text-secondary fs-12">(200)</span>
+                                            <span class="float-right text-secondary fs-12">({{ userOnlineStatusoffline() }})</span>
                                         </label>
                                     </div>
                                 </div>

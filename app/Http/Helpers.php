@@ -39,12 +39,28 @@ function get_current_projects__($id,$coulam){
 }
 
 
-function userOnlineStatus()
+function userOnlineStatusonline()
     {
         $users = User::all();
         $id=0;
         foreach ($users as $user) {
             if (Cache::has('user-is-online-' . $user->id)) {
+                $id++;
+                // else
+            //     echo "User " . $user->name . " is offline.";
+            }
+           return $id;
+        }
+    }
+
+
+
+    function userOnlineStatusoffline()
+    {
+        $users = User::all();
+        $id=0;
+        foreach ($users as $user) {
+            if (! Cache::has('user-is-online-' . $user->id)) {
                 $id++;
                 // else
             //     echo "User " . $user->name . " is offline.";
