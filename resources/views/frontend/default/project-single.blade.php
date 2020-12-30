@@ -101,9 +101,10 @@ $profile = \App\Models\UserProfile::where('user_id', $project->client_user_id)->
                             @endif
                             @endforeach
                             <hr>
-                            @include('frontend.default.Offers')
+                          
 
                         </div>
+                        @include('frontend.default.Offers')
                     </div>
                 </div>
             </div>
