@@ -23,7 +23,7 @@ class SearchController extends Controller
             $freelancers = UserProfile::where('user_role_id', '2');
 
             if($request->keyword != null){
-                $user_ids = User::where('name', 'like', '%'.$keyword.'%')->pluck('id');
+                $user_ids = User::where('slug', 'like', '%'.$keyword.'%')->pluck('id');
                 $freelancers = $freelancers->whereIn('user_id', $user_ids);
             }
 
