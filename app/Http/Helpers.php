@@ -49,7 +49,7 @@ function userOnlineStatus()
                 // else
             //     echo "User " . $user->name . " is offline.";
             }
-            dd($id);
+           return $id;
         }
     }
 
