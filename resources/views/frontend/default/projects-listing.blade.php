@@ -83,7 +83,7 @@
                                                     checked
                                                 @endif> {{ translate('0 to 5') }}
                                                 <span class="aiz-rounded-check"></span>
-                                                <span class="float-right text-secondary fs-12">({{ DB::table('projects')->where('bids',0)->count() }})</span>
+                                                <span class="float-right text-secondary fs-12">({{ DB::table('projects')->where('bids','<',5)->count() }})</span>
                                             </label>
                                             <label class="aiz-radio">
                                                 <input type="radio" name="bids" value="5-10" onchange="applyFilter()" @if ($bids == "5-10")
