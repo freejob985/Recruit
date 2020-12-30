@@ -129,6 +129,7 @@
         margin-top: 58%;
     }
 </style>
+<hr>
 <div class="container">
     <div class="be-comment-block">
         <h1 class="comments-title">اجمالي العروض المقدمة ({{ get_current_projects__($project->id,"bids") }})</h1>
