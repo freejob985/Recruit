@@ -30,7 +30,7 @@
                                             <ul class="list-unstyled mb-0">
                                                 @if (!isset($category_id))
                                                     @foreach (\App\Models\ProjectCategory::where('parent_id', 0)->get() as $category)
-                                                        <li><a href="{{ route('projects.category', $category->slug) }}">{{ $category->name }}</a></li>
+                                                        <li><span class="label label-warning">11</span><a href="{{ route('projects.category', $category->slug) }}">{{ $category->name }}</a></li>
                                                     @endforeach
                                                 @else
                                                     <li class="go-back"><a href="{{ route('search') }}">All Categories</a></li>
