@@ -49,42 +49,42 @@
                                                 checked
                                             @endif> {{ translate('Any rating') }}
                                             <span class="aiz-rounded-check"></span>
-                                            <span class="float-right text-secondary fs-12">(200)</span>
+                                            <span class="float-right text-secondary fs-12">({{ DB::table('user_profiles')->whereBetween('rating', [4, 1000])->count() }})</span>
                                         </label>
                                         <label class="aiz-radio">
                                             <input type="radio" name="rating" value="4+" onchange="applyFilter()" @if ($rating == '4+')
                                                 checked
                                             @endif> {{ translate('4 star +') }}
                                             <span class="aiz-rounded-check"></span>
-                                            <span class="float-right text-secondary fs-12">(200)</span>
+                                            <span class="float-right text-secondary fs-12">({{ DB::table('user_profiles')->whereBetween('rating', [4, 10])->count() }})</span>
                                         </label>
                                         <label class="aiz-radio">
                                             <input type="radio" name="rating" value="3-4" onchange="applyFilter()" @if ($rating == '3-4')
                                                 checked
                                             @endif> {{ translate('3 to 4 star') }}
                                             <span class="aiz-rounded-check"></span>
-                                            <span class="float-right text-secondary fs-12">(200)</span>
+                                            <span class="float-right text-secondary fs-12">({{ DB::table('user_profiles')->whereBetween('rating', [3, 4])->count() }})</span>
                                         </label>
                                         <label class="aiz-radio">
                                             <input type="radio" name="rating" value="2-3" onchange="applyFilter()" @if ($rating == '2-3')
                                                 checked
                                             @endif> {{ translate('2 to 3 star') }}
                                             <span class="aiz-rounded-check"></span>
-                                            <span class="float-right text-secondary fs-12">(200)</span>
+                                            <span class="float-right text-secondary fs-12">({{ DB::table('user_profiles')->whereBetween('rating', [2, 3])->count() }})</span>
                                         </label>
                                         <label class="aiz-radio">
                                             <input type="radio" name="rating" value="1-2" onchange="applyFilter()" @if ($rating == '1-2')
                                                 checked
                                             @endif> {{ translate('1 to 2 star') }}
                                             <span class="aiz-rounded-check"></span>
-                                            <span class="float-right text-secondary fs-12">(200)</span>
+                                            <span class="float-right text-secondary fs-12">({{ DB::table('user_profiles')->whereBetween('rating', [1, 2])->count() }})</span>
                                         </label>
                                         <label class="aiz-radio">
                                             <input type="radio" name="rating" value="0-1" onchange="applyFilter()" @if ($rating == '0-1')
                                                 checked
                                             @endif> {{ translate('0 to 1 star') }}
                                             <span class="aiz-rounded-check"></span>
-                                            <span class="float-right text-secondary fs-12">(200)</span>
+                                            <span class="float-right text-secondary fs-12">({{ DB::table('user_profiles')->whereBetween('rating', [0, 1])->count() }})</span>
                                         </label>
                                     </div>
                                 </div>
