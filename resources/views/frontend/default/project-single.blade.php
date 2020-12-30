@@ -94,7 +94,7 @@
                                 @endforeach
 
                                @include('frontend.default.Offers')
-                                Actual location of offers
+                            
                             </div>
 						</div>
 					</div>
