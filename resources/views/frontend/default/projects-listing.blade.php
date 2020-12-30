@@ -76,42 +76,42 @@
                                                     checked
                                                 @endif> {{ translate('Any Number of bids') }}
                                                 <span class="aiz-rounded-check"></span>
-                                                <span class="float-right text-secondary fs-12">(200)</span>
+                                                <span class="float-right text-secondary fs-12">({{ DB::table('projects')->where('bids',0)->count() }})</span>
                                             </label>
                                             <label class="aiz-radio">
                                                 <input type="radio" name="bids" value="0-5" onchange="applyFilter()" @if ($bids == "0-5")
                                                     checked
                                                 @endif> {{ translate('0 to 5') }}
                                                 <span class="aiz-rounded-check"></span>
-                                                <span class="float-right text-secondary fs-12">(200)</span>
+                                                <span class="float-right text-secondary fs-12">({{ DB::table('projects')->where('bids',0)->count() }})</span>
                                             </label>
                                             <label class="aiz-radio">
                                                 <input type="radio" name="bids" value="5-10" onchange="applyFilter()" @if ($bids == "5-10")
                                                     checked
                                                 @endif> {{ translate('5 to 10') }}
                                                 <span class="aiz-rounded-check"></span>
-                                                <span class="float-right text-secondary fs-12">(200)</span>
+                                                <span class="float-right text-secondary fs-12">({{ DB::table('projects')->where('bids',0)->count() }})</span>
                                             </label>
                                             <label class="aiz-radio">
                                                 <input type="radio" name="bids" value="10-20" onchange="applyFilter()" @if ($bids == "10-20")
                                                     checked
                                                 @endif> {{ translate('10 to 20') }}
                                                 <span class="aiz-rounded-check"></span>
-                                                <span class="float-right text-secondary fs-12">(200)</span>
+                                                <span class="float-right text-secondary fs-12">({{ DB::table('projects')->where('bids',0)->count() }})</span>
                                             </label>
                                             <label class="aiz-radio">
                                                 <input type="radio" name="bids" value="20-30" onchange="applyFilter()" @if ($bids == "20-30")
                                                     checked
                                                 @endif> {{ translate('20 to 30') }}
                                                 <span class="aiz-rounded-check"></span>
-                                                <span class="float-right text-secondary fs-12">(200)</span>
+                                                <span class="float-right text-secondary fs-12">({{ DB::table('projects')->where('bids',0)->count() }})</span>
                                             </label>
                                             <label class="aiz-radio">
                                                 <input type="radio" name="bids" value="30+" onchange="applyFilter()" @if ($bids == "30+")
                                                     checked
                                                 @endif> {{ translate('30+') }}
                                                 <span class="aiz-rounded-check"></span>
-                                                <span class="float-right text-secondary fs-12">(200)</span>
+                                                <span class="float-right text-secondary fs-12">({{ DB::table('projects')->where('bids',0)->count() }})</span>
                                             </label>
                                         </div>
                                     </div>
