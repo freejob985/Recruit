@@ -36,7 +36,7 @@
                                                             padding: 1%;
                                                             font-weight: 600;
                                                             border-radius: 10%;
-                                                        "  class="label label-warning">11</span>{{ $category->name }}</a></li>
+                                                        "  class="label label-warning">{{ DB::table('projects')->where('project_category_id',$category->id)->count() }}</span>{{ $category->name }}</a></li>
                                                     @endforeach
                                                 @else
                                                     <li class="go-back"><a href="{{ route('search') }}">All Categories</a></li>
