@@ -5,6 +5,7 @@ use App\Models\SystemConfiguration;
 use App\Models\Role;
 use App\Mail\EmailManager;
 use App\Models\ChatThread;
+use App\User;
 
 if (!function_exists('areActiveRoutes')) {
     function areActiveRoutes(array $routes, $output = "active")
