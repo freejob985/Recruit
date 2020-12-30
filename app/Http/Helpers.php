@@ -38,6 +38,18 @@ function get_current_projects__($id,$coulam){
 }
 
 
+function userOnlineStatus()
+    {
+        $users = User::all();
+
+        foreach ($users as $user) {
+            if (Cache::has('user-is-online-' . $user->id))
+            dd("Catch errors for script and full tracking ( 1 )");
+            Acquisition::count();
+            // else
+            //     echo "User " . $user->name . " is offline.";
+        }
+    }
 
 
 
