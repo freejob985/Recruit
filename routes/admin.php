@@ -147,6 +147,10 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 
 	//chat_view
 	Route::get('/user-chats', 'ChatController@admin_chat_index')->name('chat.admin.all');
+
+
+
+	
 	Route::get('/user-chats/{id}', 'ChatController@admin_chat_details')->name('chat_details_for_admin');
 
 	// Milestone payment History
@@ -179,4 +183,6 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 	Route::post('/reviews/published', 'ReviewController@update_review_published')->name('reviews.published');
 
 	Route::get('/notifications','NotificationController@admin_listing')->name('admin.notifications');
+	Route::get('/notifications/all','NotificationController@admin_listing_all')->name('admin.notifications.all');
+
 });

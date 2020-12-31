@@ -22,6 +22,16 @@ class NotificationController extends Controller
         return view('admin.default.notifications',compact('notifications'));
     }
 
+
+    public function admin_listing_all()
+    {
+
+        NotificationUtility::make_my_notifications_seen();
+        $notifications = NotificationUtility::get_my_notifications(10,false,0,true);
+
+        return view('admin.default.notfy',compact('notifications'));
+    }
+
     public function frontend_listing()
     {
         NotificationUtility::make_my_notifications_seen();
