@@ -205,37 +205,27 @@ Route::get('/freelancer-lists', 'HomeController@freelancer_list')->name('freelan
 Route::get('/freelancer/{user_name}', 'HomeController@freelancer_details')->name('freelancer.details');
 
 Route::get('/get_freelancer_skills','SkillController@freelancer_skills')->name('get_freelancer_skills');
-
 //Payments
-
 //Paypal
 Route::get('/paypal/payment/done', 'PayPalController@getDone')->name('payment.done');
 Route::get('/paypal/payment/cancel', 'PayPalController@getCancel')->name('payment.cancel');
-
 //STRIPE
 Route::get('/stripe', 'StripePaymentController@index');
 Route::post('/stripe/create-checkout-session', 'StripePaymentController@create_checkout_session')->name('stripe.get_token');
 Route::any('/stripe/payment/callback', 'StripePaymentController@callback')->name('stripe.callback');
 Route::get('/stripe/success', 'StripePaymentController@success')->name('stripe.success');
 Route::get('/stripe/cancel', 'StripePaymentController@cancel')->name('stripe.cancel');
-
 //Paystack
 Route::get('/paystack/payment/callback', 'PaystackController@handleGatewayCallback');
-
 // SSLCOMMERZ Start
 Route::get('/sslcommerz/pay', 'PublicSslCommerzPaymentController@index');
 Route::POST('/sslcommerz/success', 'PublicSslCommerzPaymentController@success');
 Route::POST('/sslcommerz/fail', 'PublicSslCommerzPaymentController@fail');
 Route::POST('/sslcommerz/cancel', 'PublicSslCommerzPaymentController@cancel');
 Route::POST('/sslcommerz/ipn', 'PublicSslCommerzPaymentController@ipn');
-
 //Instamojo
 Route::get('/instamojo/payment/pay-success', 'InstamojoController@success')->name('instamojo.success');
-
 //Paytm
 Route::get('/paytm/index', 'PaytmController@index');
 Route::post('/paytm/callback', 'PaytmController@callback')->name('paytm.callback');
-
-
-
 Route::get('/{slug}', 'PageController@show_custom_page')->name('custom-pages.show_custom_page');
