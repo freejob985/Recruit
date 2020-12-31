@@ -6,6 +6,7 @@ use Closure;
 use App;
 use Session;
 use Config;
+use DB;
 
 class Maintenance
 {
