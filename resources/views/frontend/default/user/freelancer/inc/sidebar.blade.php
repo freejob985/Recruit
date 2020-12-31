@@ -226,6 +226,14 @@
             <p class="text-uppercase opacity-60 mb-1 fs-11">{{ translate('Balance') }}</p>
             <h3 class="fw-700">{{single_price($profile->balance)}}</h3>
         </div>
+
+        <div class="bg-primary text-white text-center py-5 position-relative">
+            <svg class="absolute-full" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" fill="rgba(255,255,255,0.1)" fill-opacity="1" xml:space="preserve">
+                <path d="M318.5,267.4c-0.1,0-0.1,0-0.2-0.1c-24.6-9.9-38.9-15-51.6-19.3V64.4c59.7,3.9,106.7,40.5,106.7,85 c0,5.9,4.8,10.7,10.7,10.7s10.7-4.8,10.7-10.7c0-56-56.5-102.1-128-106.4V10.7C266.7,4.8,261.9,0,256,0s-10.7,4.8-10.7,10.7V43 c-71.5,4.2-128,50.3-128,106.4c0,40.5,29.1,77,75.9,95.2c0.1,0,0.2,0.1,0.3,0.1c24.8,9.6,39.1,14.5,51.8,18.7v184.3 c-59.7-3.9-106.7-40.5-106.7-85c0-5.9-4.8-10.7-10.7-10.7s-10.7,4.8-10.7,10.7c0,56,56.5,102.1,128,106.4v32.3 c0,5.9,4.8,10.7,10.7,10.7s10.7-4.8,10.7-10.7V469c71.5-4.2,128-50.3,128-106.4C394.7,322.1,365.5,285.5,318.5,267.4z  M201.7,225 c-0.2-0.1-0.3-0.1-0.5-0.2c-38.6-15-62.6-43.9-62.6-75.4c0-44.4,47-81,106.7-85v176.6C234.4,237.2,221.5,232.7,201.7,225z M266.7,447.6V270.5c10.9,3.8,24,8.6,44,16.7c0,0,0.1,0,0.1,0c0.1,0.1,0.3,0.1,0.4,0.1c38.4,15,62.2,43.8,62.2,75.3 C373.3,407.1,326.4,443.7,266.7,447.6z"/>
+            </svg>
+            <p class="text-uppercase opacity-60 mb-1 fs-11"> <button type="button" class="btn btn-success">Success</button></p>
+            <h3 class="fw-700">{{single_price($profile->balance)}}</h3>
+        </div>
         <div>
             <a href="{{ route('logout') }}" class="btn btn-block hov-bg-danger hov-text-white rounded-0">
                 <i class="las la-sign-out-alt"></i>
