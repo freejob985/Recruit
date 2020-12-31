@@ -9,9 +9,7 @@
         font-weight: 900;
     }
 
-     *{box-sizing: border-box;}
-html{height: 100%;margin: 0;}
-body{min-height: 100%;font-family: 'Roboto';margin: 0;background-color: #fafafa;}
+
 .container { margin: 150px auto; max-width: 960px;}
 label{display: block;padding: 20px 0 5px 0;}  
 .tagsinput,.tagsinput *{box-sizing:border-box}
