@@ -230,10 +230,11 @@
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('support-tickets.user_index') }}" class="aiz-side-nav-link ">
                        
-                        <span class="aiz-side-nav-text"><button type="button" class="btn btn-success btn-sm">Success</button></span>
+                        <span class="aiz-side-nav-text"><button type="button" class="btn btn-success btn-sm btn-block">Success</button></span>
                     </a>
                 </li>
             </ul>
+            
         </div>
         <div class="bg-primary text-white text-center py-5 position-relative">
             <svg class="absolute-full" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" fill="rgba(255,255,255,0.1)" fill-opacity="1" xml:space="preserve">
