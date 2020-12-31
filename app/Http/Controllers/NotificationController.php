@@ -26,7 +26,7 @@ class NotificationController extends Controller
 
         NotificationUtility::make_my_notifications_seen();
         $notifications = NotificationUtility::get_my_notifications_all(10, false, 0, true);
-        dd($notifications);
+      //  dd($notifications);
         return view('admin.default.notfy', compact('notifications'));
     }
 
