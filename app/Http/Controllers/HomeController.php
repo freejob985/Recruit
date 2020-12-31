@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Middleware\Maintenance;
 use Session;
 use Auth;
 use Hash;
