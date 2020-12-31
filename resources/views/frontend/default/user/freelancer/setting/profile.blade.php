@@ -2,7 +2,7 @@
 @extends('frontend.default.layouts.app')
 
 @section('content')
-
+<link rel="stylesheet" href="path/to/line-awesome/css/line-awesome-font-awesome.min.css">
     <section class="py-5">
         <div class="container">
             <div class="d-flex align-items-start">
@@ -373,7 +373,7 @@
                                 <div class="form-group">
                                     <label id="usernameLabel" class="form-label">
                                        رابط
-                                        <span class="text-danger">link</span>
+                                        <span class="text-danger"></span>
                                     </label>
                                     <input type="url" class="form-control" name="link" placeholder="link">
                                 </div>
