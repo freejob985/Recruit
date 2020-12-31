@@ -9,11 +9,11 @@
         font-weight: 900;
     }
 
-    {{--  *{box-sizing: border-box;}
+     *{box-sizing: border-box;}
 html{height: 100%;margin: 0;}
 body{min-height: 100%;font-family: 'Roboto';margin: 0;background-color: #fafafa;}
 .container { margin: 150px auto; max-width: 960px;}
-label{display: block;padding: 20px 0 5px 0;}  --}}
+label{display: block;padding: 20px 0 5px 0;}  
 .tagsinput,.tagsinput *{box-sizing:border-box}
 .tagsinput{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;background:#fff;font-family:sans-serif;font-size:14px;line-height:20px;color:#556270;padding:5px 5px 0;border:1px solid #e6e6e6;border-radius:2px}
 .tagsinput.focus{border-color:#ccc}
@@ -216,7 +216,7 @@ label{display: block;padding: 20px 0 5px 0;}  --}}
                                             {{ translate('Specialist At') }}
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select class="form-control aiz-selectpicker" id="specialist" name="specialist[]" data-live-search="true" required multiple>
+                                        <select class="form-control aiz-selectpicker" id="specialist" name="specialist[]" data-live-search="true" required >
                                             @foreach (\App\Models\ProjectCategory::all() as $category)
                                                 <option value="{{ $category->id }}" @if ($user_profile->specialist == $category->id)
                                                     selected
@@ -240,7 +240,7 @@ label{display: block;padding: 20px 0 5px 0;}  --}}
                                           تخصصات أخري 
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="number" class="form-control" name="Other_specialties" value="{{ $user_profile->hourly_rate }}" placeholder="100" required>
+                                        <input type="text" class="form-control" id="form-tags-2" name="Other_specialties" value="{{ $user_profile->Other_specialties }}" placeholder="100" required>
                                     </div>
                                 </div>
                                 <div class="form-group">

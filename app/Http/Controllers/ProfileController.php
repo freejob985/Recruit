@@ -82,7 +82,8 @@ class ProfileController extends Controller
             $user_profile = UserProfile::where('user_id', Auth::user()->id)->where('user_role_id', Session::get('role_id'))->first();
             $user_profile->gender = $request->gender;
             $user_profile->nationality = $request->nationality;
-            $user_profile->specialist = json_encode($request->specialist);
+            $user_profile->specialist = $request->specialist;
+            $user_profile->Other_specialties = $request->Other_specialties;
             if ($request->hourly_rate != null) {
                 $user_profile->hourly_rate = $request->hourly_rate;
             }
