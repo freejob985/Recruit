@@ -15,7 +15,7 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-start hov-bg-soft-primary">
                                         <a href="{{ url($notification->link) }}" class="media text-inherit">
                                             <span class="avatar avatar-sm mr-3">
-                                                <img src="{{ $notification->sender != null ? custom_asset($notification->sender->photo) : my_asset('assets/backend/default/img/avatar-place.png') }}">
+                                                <img src="{{ $notification->sender != null ? custom_asset($notification->sender->photo) :https://img.pngio.com/avatar-icon-png-105-images-in-collection-page-3-avatarpng-512_512.png }}">
                                             </span>
                                             <div class="media-body">
                                                 <p class="mb-1">{{ $notification->message }} {{ $notification->sender != null ? $notification->sender->name : '' }}</p>
