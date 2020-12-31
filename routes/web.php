@@ -116,6 +116,7 @@ Route::group(['middleware' => ['auth', 'client', 'packagePurchased']], function(
 
 	//project completed
 	Route::get('/project-done/{id}', 'ProjectController@project_done')->name('projects.complete');
+	Route::get('/Transformation/{user}', 'ServiceController@Transformation')->name('Transformation');
 
     Route::resource('bookmarked-freelancers', 'BookmarkedFreelancerController');
     Route::get('/bookmarked-freelancers/store/{id}', 'BookmarkedFreelancerController@store')->name('bookmarked-freelancers.store');
