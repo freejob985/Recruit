@@ -20,12 +20,14 @@ class Maintenance
         $Status = DB::table('Maintenance')->value('Status');
 
         if ($Status == "active") {
-           //  redirect()->route('route.name', [$param]);
+//return redirect()->to('https://sub.digi-gate.com/Maintenance');
 
+                   //    dd("The site is in maintenance mode");
           return  redirect()->route('Maintenance.pag');
-            //  dd("Catch errors for script and full tracking ( 1 )");
+        }else{
+                   return $next($request);
+ 
         }
 
-        return $next($request);
     }
 }

@@ -42,9 +42,8 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\Language::class,
-
             \App\Http\Middleware\LastUserActivity::class,
-            \App\Http\Middleware\HttpsProtocol::class
+           
         ],
 
         'api' => [
@@ -75,8 +74,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'Maintenance' => \Illuminate\Auth\Middleware\Maintenance::class,
-
+                'Maintenance' =>    \App\Http\Middleware\Maintenance::class,
 
     ];
 
@@ -94,6 +92,7 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Illuminate\Auth\Middleware\Authorize::class,
-        \Illuminate\Auth\Middleware\Maintenance::class,
+                    \App\Http\Middleware\Maintenance::class,
+
     ];
 }
