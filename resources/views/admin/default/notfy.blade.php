@@ -15,7 +15,7 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-start hov-bg-soft-primary">
                                         <a href="{{ url($notification->link) }}" class="media text-inherit">
                                             <span class="avatar avatar-sm mr-3">
-                                                @if ($notification->sender != null)
+                                                @if ($notification->sender->photo != null)
         
                                                     <img src="{{ custom_asset($notification->sender->photo) }}">
 
