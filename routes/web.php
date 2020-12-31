@@ -104,6 +104,7 @@ Route::group(['middleware' => ['user', 'packagePurchased']], function(){
 // Client middleware
 Route::group(['middleware' => ['auth', 'client', 'packagePurchased']], function(){
 	Route::resource('/projects', 'ProjectController');
+	
 	Route::get('/my-open-projects', 'ProjectController@my_open_project')->name('projects.my_open_project');
 	Route::get('/project-bids/{slug}', 'ProjectController@project_bids')->name('project.bids');
 	Route::get('/invition-for-hire-freelancer/{username}', 'HireController@freelancer_invition')->name('invition_for_hire_freelancer');
@@ -115,8 +116,7 @@ Route::group(['middleware' => ['auth', 'client', 'packagePurchased']], function(
 	Route::post('/milestone-payment', 'MilestonePaymentController@index')->name('milestone.pay_to_admin');
 
 	//project completed
-	Route::get('/project-done/{id}', 'ProjectController@project_done')->name('projects.complete');
-	Route::get('/Transformation/{user}', 'ServiceController@Transformation')->name('Transformation');
+	Route::get('/Transformation/{user}', 'ProjectController@Transformation')->name('Transformation');
 
     Route::resource('bookmarked-freelancers', 'BookmarkedFreelancerController');
     Route::get('/bookmarked-freelancers/store/{id}', 'BookmarkedFreelancerController@store')->name('bookmarked-freelancers.store');
