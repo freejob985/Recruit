@@ -53,6 +53,7 @@ class PortfolioController extends Controller
         if ($request->portfolio_img != null) {
             $portfolio->photo = $request->portfolio_img;
         }
+        $portfolio->link = $request->link;
         if ($portfolio->save()) {
             flash(__('Your Portfolio has been updated successfully'))->success();
             return redirect()->route('user.profile');
