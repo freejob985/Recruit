@@ -26,7 +26,7 @@
                                             </span>
                                             <div class="media-body">
                                                 <p class="mb-1">{{ $notification->message }} {{ $notification->sender != null ? $notification->sender->name : '' }}</p>
-                                                <small class="text-muted">{{ Carbon::parse($notification->created_at)->diffForHumans() }}</small>
+                                                <span class="label label-success"><small class="text-muted">{{ Carbon::parse($notification->created_at)->diffForHumans() }}</small>
                                             </div>
                                         </a>
                                         <button class="btn p-0" data-toggle="tooltip" data-title="@if($notification->seen_by_receiver == 1) {{ translate('Seen') }} @else {{ translate('Mark as read') }} @endif">
