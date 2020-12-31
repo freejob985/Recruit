@@ -303,7 +303,9 @@
                     </ul>
                 </li>
 
-                <li class="aiz-side-nav-item">
+                <li class="aiz-side-nav-item" style="
+                display: none;
+            ">
                     <a href="#"
                         class="aiz-side-nav-link {{ areActiveRoutes(['employees.create', 'employees.edit', 'employees.set_permission'])}}">
                         <i class="las la-user aiz-side-nav-icon"></i>
