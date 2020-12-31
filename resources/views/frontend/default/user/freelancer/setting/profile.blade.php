@@ -194,7 +194,7 @@
                                             {{ translate('Specialist At') }}
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select class="form-control aiz-selectpicker" id="specialist" name="specialist" data-live-search="true" required>
+                                        <select class="form-control aiz-selectpicker" id="specialist" name="specialist" data-live-search="true" required multiple>
                                             @foreach (\App\Models\ProjectCategory::all() as $category)
                                                 <option value="{{ $category->id }}" @if ($user_profile->specialist == $category->id)
                                                     selected
