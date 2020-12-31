@@ -79,6 +79,7 @@ class ProfileController extends Controller
         }
         $user->name = $request->name;
         if ($user->save()) {
+            dd($request->all());
             dd($request->specialist[]);
             $user_profile = UserProfile::where('user_id', Auth::user()->id)->where('user_role_id', Session::get('role_id'))->first();
             $user_profile->gender = $request->gender;
