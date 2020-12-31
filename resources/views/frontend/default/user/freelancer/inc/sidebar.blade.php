@@ -226,6 +226,8 @@
                         
                     </ul>
                 </li>
+                @if (Auth::user()->comprehensive=="1")
+    
 
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('Transformation', ["Client"]) }}" class="aiz-side-nav-link ">
@@ -233,6 +235,7 @@
                         <span class="aiz-side-nav-text"><button type="button" class="btn btn-success btn-sm btn-block">Profile Client</button></span>
                     </a>
                 </li>
+                @endif
             </ul>
             
         </div>
