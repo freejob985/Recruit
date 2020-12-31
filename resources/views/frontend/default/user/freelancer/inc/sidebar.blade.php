@@ -229,8 +229,8 @@
 
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('support-tickets.user_index') }}" class="aiz-side-nav-link ">
-                        <i class="las la-tachometer-alt aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text"><button type="button" class="btn btn-success">Success</button></span>
+                       
+                        <span class="aiz-side-nav-text"><button type="button" class="btn btn-success btn-sm">Success</button></span>
                     </a>
                 </li>
             </ul>
