@@ -20,10 +20,9 @@
                                                     <img src="{{ custom_asset($notification->sender->photo) }}">
 
                                                 @else
-                                                <img src="{{ my_asset('assets/frontend/default/img/avatar-place.png') }}" class="be-ava-comment">
+                                                <img src="https://www.w3schools.com/howto/img_avatar.png" class="be-ava-comment">
                             
                                                 @endif
-                                                <img src="{{ $notification->sender != null ? custom_asset($notification->sender->photo) : my_asset('assets/backend/default/img/avatar-place.png') }}">
                                             </span>
                                             <div class="media-body">
                                                 <p class="mb-1">{{ $notification->message }} {{ $notification->sender != null ? $notification->sender->name : '' }}</p>
