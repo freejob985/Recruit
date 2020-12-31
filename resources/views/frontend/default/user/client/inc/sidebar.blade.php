@@ -167,7 +167,7 @@
                 </li>
 
                 <li class="aiz-side-nav-item">
-                    <a href="{{ route('Transformation', ["Freelancer"]) }}" class="aiz-side-nav-link ">
+                    <a href="{{ route('Transformations', ["Freelancer"]) }}" class="aiz-side-nav-link ">
                        
                         <span class="aiz-side-nav-text"><button type="button" class="btn btn-success btn-sm btn-block">Profile Freelancer</button></span>
                     </a>

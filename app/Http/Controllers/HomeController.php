@@ -76,6 +76,12 @@ if(Session::get('locale')==""){
     }
 
 
+
+
+
+
+
+
     //Redirect user-based dashboard
     public function dashboard()
     {
@@ -104,7 +110,7 @@ if(Session::get('locale')==""){
        // dd($type);
         if (Auth::check()) {
             if ($type == "Freelancer") {
-                dd("Catch errors for script and full tracking ( 3 )");
+           //     dd("Catch errors for script and full tracking ( 3 )");
                 DB::table('user_roles')
                 ->where('user_id', Auth::user()->id)
                 ->update(['role_id' => "2"]);
