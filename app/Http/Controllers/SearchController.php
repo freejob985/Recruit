@@ -35,7 +35,6 @@ class SearchController extends Controller
                     $freelancers = $freelancers->whereIn('rating', explode('-', $rating));
                 }
             }
-
             $total = count($freelancers->get());
             $freelancers = $freelancers->paginate(8)->appends($request->query());
             return view('frontend.default.freelancers-listing', compact('freelancers', 'total', 'keyword', 'type', 'rating'));
@@ -43,15 +42,11 @@ class SearchController extends Controller
             $type = 'service';
             $keyword = $request->keyword;
             $rating = $request->rating;
-
             $services = Service::where('id', '!=', null);
-
             if($request->keyword != null){
                 $service_ids = Service::where('title', 'like', '%'.$keyword.'%')->pluck('id');
                 $services = $services->whereIn('id', $service_ids);
             }
-
-
             $total = count($services->get());
             $services = $services->paginate(8)->appends($request->query());
             return view('frontend.default.services-listing', compact('services', 'total', 'keyword', 'type', 'rating'));

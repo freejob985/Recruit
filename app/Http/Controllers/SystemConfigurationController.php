@@ -89,6 +89,7 @@ class SystemConfigurationController extends Controller
 
     public function update(Request $request)
     {
+        dd(Session::get('locale')    );
         foreach ($request->types as $key => $type) {
             $system_configuration = SystemConfiguration::where('type', $type)->first();
             if($system_configuration != null){
