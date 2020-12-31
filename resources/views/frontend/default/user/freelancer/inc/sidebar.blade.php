@@ -218,13 +218,20 @@
 
                         <li class="aiz-side-nav-item">
                             <a href="{{ route('user.profile') }}" class="aiz-side-nav-link {{ areActiveRoutes(['user.profile'])}}">
-                                <span class="aiz-side-nav-text"><button type="button" class="btn btn-success">Success</button></span>
+                                <span class="aiz-side-nav-text"></span>
                             </a>
                         </li>
 
 
                         
                     </ul>
+                </li>
+
+                <li class="aiz-side-nav-item">
+                    <a href="{{ route('support-tickets.user_index') }}" class="aiz-side-nav-link ">
+                        <i class="las la-tachometer-alt aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text"><button type="button" class="btn btn-success">Success</button></span>
+                    </a>
                 </li>
             </ul>
         </div>
