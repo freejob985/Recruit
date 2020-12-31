@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Middleware\Maintenance;
 use Session;
 use Auth;
 use Hash;
@@ -29,7 +28,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-         $this->middleware('Maintenance');
+        // $this->middleware('auth');
     }
 
     /**
