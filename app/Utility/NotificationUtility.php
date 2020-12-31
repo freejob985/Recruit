@@ -88,6 +88,60 @@ class NotificationUtility
         return $list;
     }
 
+
+    public static function get_my_notifications_all($limit = 0, $only_unseen = true, $only_count = false, $paginated = false)
+    {
+        $list = array();
+        $count = 0;
+
+        if (!Auth::check() && !$only_count) {
+            return $list;
+        } elseif (!Auth::check() && $only_count) {
+            return $count;
+        }
+
+        $panel = '';
+        if (isClient()) {
+            $panel = 'client';
+        } else if (isFreelancer()) {
+            $panel = 'freelancer';
+        } else if (!isClient() && !isFreelancer()) {
+            $panel = 'admin';
+        }
+
+
+        $notifications_query = Notification::latest();
+
+     
+        if ($only_unseen == true) {
+            $notifications_query->where('seen_by_receiver', 0);
+        }
+
+        //return only the numbers of notifications
+        if ($only_count) {
+            return $notifications_query->count();
+        } else if ($paginated) {
+            //return paginated data for all notifications page
+            return $notifications_query->paginate($limit);
+        }
+        $notifications = $notifications_query->limit($limit)->get();
+
+        foreach ($notifications as $notification) {
+            if($notification->sender != null){
+                $item = array();
+                $item['message'] = $notification->message;
+                $item['link'] = url($notification->link);
+                $item['sender_name'] = $notification->sender->name;
+                $item['sender_photo'] = $notification->sender->photo > 0 ? custom_asset($notification->sender->photo) : my_asset('assets/backend/default/img/avatar-place.png');
+                $item['seen'] = $notification->seen_by_receiver == 1 ? true : false;
+                $item['date'] = Carbon::parse($notification->created_at)->diffForHumans();
+
+                $list[] = $item;
+            }
+        }
+
+        return $list;
+    }
     public static function make_my_notifications_seen()
     {
         try {

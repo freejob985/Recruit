@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Utility\NotificationUtility;
 use Illuminate\Http\Request;
-use App\Models\Notification;
 
 class NotificationController extends Controller
 {
@@ -17,27 +16,26 @@ class NotificationController extends Controller
     {
 
         NotificationUtility::make_my_notifications_seen();
-        $notifications = NotificationUtility::get_my_notifications(10,false,0,true);
+        $notifications = NotificationUtility::get_my_notifications(10, false, 0, true);
 
-        return view('admin.default.notifications',compact('notifications'));
+        return view('admin.default.notifications', compact('notifications'));
     }
-
 
     public function admin_listing_all()
     {
 
         NotificationUtility::make_my_notifications_seen();
-        $notifications = NotificationUtility::get_my_notifications(10,false,0,true);
-
-        return view('admin.default.notfy',compact('notifications'));
+        $notifications = NotificationUtility::get_my_notifications_all(10, false, 0, true);
+        dd($notifications);
+        return view('admin.default.notfy', compact('notifications'));
     }
 
     public function frontend_listing()
     {
         NotificationUtility::make_my_notifications_seen();
-        $notifications = NotificationUtility::get_my_notifications(5,false,0,true);
+        $notifications = NotificationUtility::get_my_notifications(5, false, 0, true);
 
-        return view('frontend.default.user.notifications',compact('notifications'));
+        return view('frontend.default.user.notifications', compact('notifications'));
     }
 
     /**
