@@ -7,8 +7,9 @@ use App\Models\ServicePackage;
 use App\Models\ServicePackagePayment;
 use App\Utility\ServicesUtility;
 use App\Utility\ValidationUtility;
-use Illuminate\Http\Request;
 use Auth;
+use DB;
+use Illuminate\Http\Request;
 use Validator;
 
 class ServiceController extends Controller
@@ -23,6 +24,24 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function Transformation($type)
+    {
+        if (Auth::check()) {
+            if ($type == "Freelancer") {
+                DB::table('user_roles')
+                ->where('user_id', Auth::user()->id)
+                ->update(['role_id' => "3"]);
+            } else {
+                DB::table('user_roles')
+                ->where('user_id', Auth::user()->id)
+                ->update(['role_id' => "2"]);
+            }
+        }
+
+        return redirect()->back();
+
+    }
     public function index()
     {
         return view('frontend.default.user.freelancer.projects.services.index');
@@ -41,8 +60,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        if(ServicesUtility::can_create_service() == 1)
+        if (ServicesUtility::can_create_service() == 1) {
             return view('frontend.default.user.freelancer.projects.services.create');
+        }
 
         flash(translate('Sorry! Your service creation limit is over.'))->warning();
 
@@ -70,19 +90,19 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        if(ServicesUtility::can_create_service() != 1) {
+        if (ServicesUtility::can_create_service() != 1) {
             flash(translate('Sorry! Your service creation limit is over.'))->warning();
             return redirect()->route('service.freelancer_index');
         }
 
-        if(!$this->validate_service($request)) {
+        if (!$this->validate_service($request)) {
             flash(translate('Sorry! Your validation was not successful.'))->error();
             return redirect(route('service.create'));
         }
 
         $service_created = ServicesUtility::create_service($request);
 
-        if($service_created == 1) {
+        if ($service_created == 1) {
             flash(translate('Service saved successfully'))->success();
             return redirect(route('service.freelancer_index'));
         }
@@ -101,7 +121,7 @@ class ServiceController extends Controller
     public function show($slug)
     {
         $service = Service::where('slug', $slug)->first();
-        if($service != null){
+        if ($service != null) {
             $service_packages = $service->service_packages;
 
             return view('frontend.default.services-single', compact('service', 'service_packages'));
@@ -133,14 +153,14 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        if(!$this->validate_service($request)) {
+        if (!$this->validate_service($request)) {
             flash(translate('Sorry! Your validation was not successful.'))->error();
             return redirect(route('service.edit', $slug));
         }
 
         $service_updated = ServicesUtility::update_service($request, $slug);
 
-        if($service_updated == 1) {
+        if ($service_updated == 1) {
             flash(translate('Service updated successfully'))->success();
             return redirect(route('service.freelancer_index'));
         }
@@ -162,7 +182,7 @@ class ServiceController extends Controller
 
         $deleted_success = ServicesUtility::delete_service($slug);
 
-        if($deleted_success == 1) {
+        if ($deleted_success == 1) {
             flash(translate('Service successfully deleted.'))->success();
         } else {
             flash(translate('Service was not successfully deleted.'))->error();
@@ -187,27 +207,22 @@ class ServiceController extends Controller
         $data['payment_type'] = 'service_payment';
         $request->session()->put('payment_data', $data);
 
-        if($request->payment_option == 'paypal'){
+        if ($request->payment_option == 'paypal') {
             $paypal = new PayPalController;
             return $paypal->getCheckout();
-        }
-        elseif ($request->payment_option == 'stripe') {
+        } elseif ($request->payment_option == 'stripe') {
             $stripe = new StripePaymentController;
             return $stripe->index();
-        }
-        elseif ($request->payment_option == 'sslcommerz') {
+        } elseif ($request->payment_option == 'sslcommerz') {
             $sslcommerz = new PublicSslCommerzPaymentController;
             return $sslcommerz->index($request);
-        }
-        elseif ($request->payment_option == 'paystack') {
+        } elseif ($request->payment_option == 'paystack') {
             $paystack = new PaystackController;
             return $paystack->redirectToGateway($request);
-        }
-        elseif ($request->payment_option == 'instamojo') {
+        } elseif ($request->payment_option == 'instamojo') {
             $instamojo = new InstamojoController;
             return $instamojo->pay($request);
-        }
-        elseif ($request->payment_option == 'paytm') {
+        } elseif ($request->payment_option == 'paytm') {
             $paytm = new PaytmController;
             return $paytm->index();
         }

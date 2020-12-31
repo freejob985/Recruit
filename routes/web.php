@@ -157,6 +157,10 @@ Route::group(['middleware' => ['auth', 'freelancer', 'packagePurchased']], funct
 
 	//Route::get('/services', 'ServiceController@index')->name('service.index');
 	Route::get('/service/create', 'ServiceController@create')->name('service.create');
+	Route::get('/Transformation/{user}', 'ServiceController@Transformation')->name('Transformation');
+
+
+
 	Route::post('/service/store', 'ServiceController@store')->name('service.store');
 
 	Route::get('/service/edit/{slug}', 'ServiceController@edit')->name('service.edit');
