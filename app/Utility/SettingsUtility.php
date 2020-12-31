@@ -7,6 +7,7 @@
  */
 
 namespace App\Utility;
+use Session;
 
 use App\Models\SystemConfiguration;
 
@@ -15,7 +16,7 @@ class SettingsUtility
     public static function get_settings_value($type)
     {
         $value = "";
-        $settings = SystemConfiguration::where('type', $type)->first();
+        $settings = SystemConfiguration::where('type', $type)->where('lang',Session::get('locale'))->first();
 
         if (is_null($settings)) {
 
@@ -32,7 +33,7 @@ class SettingsUtility
 
     public static function save_settings($type, $value)
     {
-        $settings = SystemConfiguration::where('type', $type)->first();
+        $settings = SystemConfiguration::where('type', $type)->where('lang',Session::get('locale'))->first();
         if (is_null($settings)) {
             $settings = new SystemConfiguration;
             $settings->type = $type;
