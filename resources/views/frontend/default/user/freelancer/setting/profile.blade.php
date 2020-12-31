@@ -3,6 +3,8 @@
 
 @section('content')
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <section class="py-5">
         <div class="container">
             <div class="d-flex align-items-start">
