@@ -165,6 +165,16 @@
                         <span class="aiz-side-nav-text">{{ translate('Profile Setting') }}</span>
                     </a>
                 </li>
+
+                <li class="aiz-side-nav-item">
+                    <a href="{{ route('Transformation', ["Freelancer"]) }}" class="aiz-side-nav-link ">
+                       
+                        <span class="aiz-side-nav-text"><button type="button" class="btn btn-success btn-sm btn-block">Profile Freelancer</button></span>
+                    </a>
+                </li>
+
+
+
             </ul>
         </div>
         

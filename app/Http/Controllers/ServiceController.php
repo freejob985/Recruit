@@ -27,19 +27,22 @@ class ServiceController extends Controller
 
     public function Transformation($type)
     {
+       // dd($type);
         if (Auth::check()) {
             if ($type == "Freelancer") {
                 DB::table('user_roles')
                 ->where('user_id', Auth::user()->id)
-                ->update(['role_id' => "3"]);
+                ->update(['role_id' => "2"]);
             } else {
+                        //     dd(Auth::user()->id);
+
                 DB::table('user_roles')
                 ->where('user_id', Auth::user()->id)
-                ->update(['role_id' => "2"]);
+                ->update(['role_id' => "3"]);
             }
         }
 
-        return redirect()->back();
+return redirect()->route('dashboard');
 
     }
     public function index()
