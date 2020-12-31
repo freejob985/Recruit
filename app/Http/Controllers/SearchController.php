@@ -64,7 +64,7 @@ class SearchController extends Controller
             $sort = $request->sort;
             $category_id = (ProjectCategory::where('slug', $request->category)->first() != null) ? ProjectCategory::where('slug', $request->category)->first()->id : null;
             $category_ids = CategoryUtility::children_ids($category_id);
-            dd("Catch errors for script and full tracking ( 2 )");
+         //   dd("Catch errors for script and full tracking ( 2 )");
             $category_ids[] = $category_id;
 
             $project_approval = SystemConfiguration::where('type','project_approval')->first()->value;
