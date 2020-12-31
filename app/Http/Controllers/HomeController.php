@@ -16,6 +16,7 @@ use App\Models\SystemConfiguration;
 use Carbon;
 use Illuminate\Support\Str;
 use App\Models\Service;
+use DB;
 
 
 class HomeController extends Controller
@@ -96,6 +97,32 @@ if(Session::get('locale')==""){
         }
     }
 
+
+
+    public function Transformation($type)
+    {
+       // dd($type);
+        if (Auth::check()) {
+            if ($type == "Freelancer") {
+                dd("Catch errors for script and full tracking ( 3 )");
+                DB::table('user_roles')
+                ->where('user_id', Auth::user()->id)
+                ->update(['role_id' => "2"]);
+            } else {
+                        //     dd(Auth::user()->id);
+
+                DB::table('user_roles')
+                ->where('user_id', Auth::user()->id)
+                ->update(['role_id' => "3"]);
+            }
+        }
+
+return redirect()->route('dashboard');
+
+    }
+
+
+    
     //Show details info of specific project
     public function project_details($slug)
     {

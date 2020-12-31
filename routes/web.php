@@ -57,7 +57,7 @@ Route::group(['middleware' => ['user']], function(){
 
 Route::group(['middleware' => ['user', 'packagePurchased']], function(){
 	Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
-
+	Route::get('/Transformation/{user}', 'HomeController@Transformation')->name('Transformation');
 	Route::get('/projects/running-project', 'ProjectController@my_running_project')->name('projects.my_running_project');
 	Route::get('/projects/completed-project', 'ProjectController@my_completed_project')->name('projects.my_completed_project');
 	Route::get('/projects/cancelled-project', 'ProjectController@my_cancelled_project')->name('projects.my_cancelled_project');
@@ -116,7 +116,6 @@ Route::group(['middleware' => ['auth', 'client', 'packagePurchased']], function(
 	Route::post('/milestone-payment', 'MilestonePaymentController@index')->name('milestone.pay_to_admin');
 
 	//project completed
-	Route::get('/Transformation/{user}', 'ProjectController@Transformation')->name('Transformation');
 
     Route::resource('bookmarked-freelancers', 'BookmarkedFreelancerController');
     Route::get('/bookmarked-freelancers/store/{id}', 'BookmarkedFreelancerController@store')->name('bookmarked-freelancers.store');
