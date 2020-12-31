@@ -90,9 +90,9 @@ class SystemConfigurationController extends Controller
 
     public function update(Request $request)
     {
-        dd(Session::get('locale')    );
+        dd(    );
         foreach ($request->types as $key => $type) {
-            $system_configuration = SystemConfiguration::where('type', $type)->first();
+            $system_configuration = SystemConfiguration::where('type', $type)->where('lang',Session::get('locale'))->first();
             if($system_configuration != null){
                 if(gettype($request[$type]) == 'array'){
                     $system_configuration->value = json_encode($request[$type]);
