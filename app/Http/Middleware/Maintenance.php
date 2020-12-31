@@ -2,10 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use App;
-use Session;
-use Config;
+use Closure;
 use DB;
 
 class Maintenance
@@ -21,15 +19,11 @@ class Maintenance
     {
         $Status = DB::table('Maintenance')->value('Status');
 
-        if($Status=="active"){
-            dd("Catch errors for script and full tracking ( 1 )");
-        }
-        else{
-           // dd("Catch errors for script and full tracking ( 2 )");
-            $locale = 'sa';
+        if ($Status == "active") {
+            redirect()->route('Maintenance.pag');
+            //  dd("Catch errors for script and full tracking ( 1 )");
         }
 
-       
         return $next($request);
     }
 }
