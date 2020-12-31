@@ -367,6 +367,19 @@
                                     </label>
                                     <input type="text" class="form-control" name="portfolio_name" placeholder="Portfolio title">
                                 </div>
+
+
+
+                                <div class="form-group">
+                                    <label id="usernameLabel" class="form-label">
+                                       رابط
+                                        <span class="text-danger">link</span>
+                                    </label>
+                                    <input type="url" class="form-control" name="link" placeholder="link">
+                                </div>
+
+
+                                
                                 <div class="form-group">
                                     <label id="usernameLabel" class="form-label">
                                         {{ translate('Category') }}
