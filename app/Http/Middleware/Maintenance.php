@@ -21,7 +21,7 @@ class Maintenance
     {
         $Status = DB::table('Maintenance')->value('Status');
 
-        if($Status=="Status"){
+        if($Status=="active"){
             dd("Catch errors for script and full tracking ( 1 )");
         }
         else{
