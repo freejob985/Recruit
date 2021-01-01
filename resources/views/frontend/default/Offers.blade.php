@@ -137,7 +137,7 @@
         $item_project_bids)
         <div class="be-comment">
             <div class="be-img-comment">
-                <a href="blog-detail-2.html">
+                <a href="#">
                     @if (get_current_user__($item_project_bids->bid_by_user_id,"photo") != null)
                     <img src="{{ custom_asset(get_current_user__($item_project_bids->bid_by_user_id,"photo")) }}" alt=""
                         class="be-ava-comment">
