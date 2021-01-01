@@ -36,12 +36,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @dd("Catch errors for script and full tracking ( 1)");
                         @foreach($packages as $key => $package)
                             <tr>
                                 <td>{{ ($key+1) + ($packages->currentPage() - 1)*$packages->perPage() }}</td>
                                 <td>{{$package->name}}</td>
                                 <td class="text-capitalize">{{str_replace('_', ' ', $package->type)}}</td>
+
+                                @dd("Catch errors for script and full tracking ( 1)".str_replace('_', ' ', $package->type));
+
 								<td>{{count(\App\Models\PackagePayment::where('package_id', $package->id)->get())}} {{ translate('times') }}</td>
                                 <td><img class="img-md" src="{{ my_asset($package->badge) }}" height="45px" alt="{{translate('badge')}}"></td>
                                 <td>{{single_price($package->price)}}</td>
