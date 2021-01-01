@@ -38,6 +38,9 @@ class ServiceController extends Controller
                 DB::table('user_profiles')
                     ->where('user_id', Auth::user()->id)
                     ->update(['user_role_id' => "2"]);
+                    DB::table('verifications')
+                    ->where('user_id', Auth::user()->id)
+                    ->update(['role_id' => "2"]);
 
             } else {
                 Session::put('role_id', "3");
@@ -47,6 +50,9 @@ class ServiceController extends Controller
                 DB::table('user_profiles')
                     ->where('user_id', Auth::user()->id)
                     ->update(['user_role_id' => "3"]);
+                    DB::table('verifications')
+                    ->where('user_id', Auth::user()->id)
+                    ->update(['role_id' => "3"]);
             }
         }
 
