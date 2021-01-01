@@ -65,7 +65,7 @@
 								<div class="w3-links-target">
 									<input type="hidden" name="types[]" value="widget_one_labels">
 									<input type="hidden" name="types[]" value="widget_one_links">
-									@dd(Session::get('locale'));
+							
 									@if (App\Models\SystemConfiguration::where('type', 'widget_one_labels')->first()->value != null)
 										@foreach (json_decode(App\Models\SystemConfiguration::where('type', 'widget_one_labels')->where('lang',Session::get('locale'))->first()->value, true) as $key => $value)
 											<div class="row gutters-5">
