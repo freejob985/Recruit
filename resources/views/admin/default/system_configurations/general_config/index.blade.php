@@ -85,7 +85,6 @@
                         @endif
                     </button>
                 </form>
-                <a href="#" class="btn btn-info " role="button">Link Button</a>
 
             </div>
         </div>
