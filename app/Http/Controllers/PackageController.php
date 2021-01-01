@@ -240,7 +240,7 @@ class PackageController extends Controller
 
         //  dd(Auth::user()->comprehensive);
         if (Auth::check()) {
-            @dd("Catch errors for script and full tracking ( 3)");
+            
             if (Auth::user()->comprehensive === "1") {
                 //  dd("Catch errors for script and full tracking ( 2 )");
                 $packages = Package::where('type', 'comprehensive')->get();
@@ -255,11 +255,7 @@ class PackageController extends Controller
             } elseif (comprehensive()) {
                 $packages = Package::where('active', '1')->get();
                 return view('frontend.default.user.freelancer.comprehensive', compact('packages'));
-            } elseif (Auth::user()->comprehensive === "1") {
-                 //   dd("Catch errors for script and full tracking ( 2 )");
-                $packages = Package::where('type', 'comprehensive')->get();
-                return view('frontend.default.user.freelancer.comprehensive', compact('packages'));
-            }
+            } 
         } else {
             abort(404);
         }
