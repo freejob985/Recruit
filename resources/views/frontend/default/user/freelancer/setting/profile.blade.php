@@ -121,6 +121,8 @@ label{display: block;padding: 20px 0 5px 0;}
                                     <label id="emailLabel" class="form-label">{{ translate('Email address') }}
                                         <span class="text-danger">*</span>
                                     </label>
+
+                                    @if(!empty($user_profile->user->user_name))
                                     <div class="input-group">
                                         <input type="email" class="form-control" name="email" @if ($user_profile->user->email != null) value="{{ $user_profile->user->email }}" @endif placeholder="Enter your email address" aria-label="Enter your email address" required aria-describedby="emailLabel" disabled>
                                         <div class="input-group-append">
@@ -136,6 +138,7 @@ label{display: block;padding: 20px 0 5px 0;}
                                             @endif
                                         </div>
                                     </div>
+                                    @endif
                                     @if ($user_profile->user->email_verified_at == null)
                                         <span class="alert alert-danger d-block py-1 mt-1">{{ translate('Verify your email address') }}</span>
                                     @endif
