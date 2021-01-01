@@ -9,7 +9,7 @@
                     <h1 class="mb-0 h6">{{translate('Create New Package')}}</h1>
                 </div>
                 <div class="card-body">
-                    <form class="form-horizontal" action="{{ route('package.store') }}" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="{{ route('package.store.comprehensive') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="name">{{translate('Package Name')}}</label>

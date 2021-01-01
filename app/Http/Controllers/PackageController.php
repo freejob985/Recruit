@@ -98,6 +98,62 @@ class PackageController extends Controller
         }
     }
 
+
+
+    public function store_(Request $request)
+    {
+        $package = new Package;
+        $package->type = $request->type;
+        $package->name = $request->name;
+        $package->price = $request->price;
+        if ($request->hasFile('badge')) {
+            $package->badge = $request->file('badge')->store('uploads/' . $request->type . '_package/photo');
+        }
+        if ($request->hasFile('photo')) {
+            $package->photo = $request->file('photo')->store('uploads/' . $request->type . '_package/photo');
+        }
+        $package->number_of_days = $request->number_of_days;
+
+
+        $package->commission = $request->commission;
+        $package->commission_type = $request->commission_type;
+
+        
+
+        $package->fixed_limit = $request->fixed_limit;
+        $package->long_term_limit = $request->long_term_limit;
+        if ($request->skill_add_limit != null && $request->portfolio_add_limit != null & $request->job_experience_limit != null && $request->project_bookmark_limit != null) {
+            $package->skill_add_limit = $request->skill_add_limit;
+            $package->portfolio_add_limit = $request->portfolio_add_limit;
+            $package->job_exp_limit = $request->job_experience_limit;
+            $package->bookmark_project_limit = $request->project_bookmark_limit;
+            $package->service_limit = $request->service_limit;
+        }
+
+        if ($request->following_status != null) {
+            $package->following_status = 1;
+        } else {
+            $package->following_status = 0;
+        }
+        $package->bio_text_limit = $request->bio_text_limit;
+        if ($request->active != null) {
+            $package->active = 1;
+        } else {
+            $package->active = 0;
+        }
+        if ($request->recommended != null) {
+            $package->recommended = 1;
+        } else {
+            $package->recommended = 0;
+        }
+        if ($package->save()) {
+            flash('New Package has been inserted successfully')->success();
+            return redirect()->route($request->type . '_package.index', $request->type);
+        }
+    }
+
+
+
     public function edit($id)
     {
         if (Gate::allows('freelancer_package_edit') || Gate::allows('client_package_edit')) {

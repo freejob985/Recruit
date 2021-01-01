@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/freelancer-package-index/{type}', 'PackageController@index')->name('freelancer_package.index');
     Route::get('/freelancer-package-create/{type}', 'PackageController@create')->name('freelancer_package.create');
     Route::post('/package-store', 'PackageController@store')->name('package.store');
+    Route::post('/package-store/comprehensive_package', 'PackageController@store_')->name('package.store.comprehensive');
+
     Route::post('/package-update/{id}', 'PackageController@update')->name('package.update');
     Route::get('/package-destroy/{id}', 'PackageController@destroy')->name('package.destroy');
     Route::get('/freelancer-package-edit/{id}', 'PackageController@edit')->name('freelancer_package.edit');
