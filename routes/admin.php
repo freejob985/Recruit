@@ -94,7 +94,7 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
     Route::resource('general-config', 'GeneralConfigurationController')->only([
         'index', 'store'
     ]);
-    Route::post('general-config/Maintenance','GeneralConfigurationController@CourseProgresss')->name('CourseProgresss.quick');
+    Route::post('general-config/Maintenance/{id}','GeneralConfigurationController@CourseProgresss')->name('CourseProgresss.quick');
 
     //email config
     Route::resource('email-config', 'EmailConfigurationController')->only([

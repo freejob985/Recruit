@@ -20,11 +20,11 @@ class GeneralConfigurationController extends Controller
 
         if ($id == "active") {
             //dd(11);
-            DB::table('course_progress')->where('id', '=', 1)->update(['Status' => "active"]);
+            DB::table('course_progress')->where('id', '=', 1)->update(['Status' => "Not activate"]);
             return back()->with('success', 'Status changed to Active !');
         } else {
             // dd(1);
-            DB::table('course_progress')->where('id', '=', 1)->update(['Status' => "Not activate"]);
+            DB::table('course_progress')->where('id', '=', 1)->update(['Status' => "active"]);
             return back()->with('delete', 'Status changed to Deactive !');
         }
     }
