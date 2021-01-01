@@ -15,6 +15,7 @@ use App\Models\MilestonePayment;
 use App\Models\FreelancerAccount;
 use Cache;
 use Gate;
+use DB;
 
 class UserController extends Controller
 {
