@@ -127,12 +127,13 @@
                         </span>
                     </p>
                     @endif
+                    @if(!empty($user_profile->balance))
                     <p class="text-muted"><strong>{{ translate('Balance') }} :</strong>
                         <span class="ml-2">
                             {{ single_price($user_profile->balance) }}
                         </span>
                     </p>
-
+                    @endif
                 </div>
             </div>
         </div>
