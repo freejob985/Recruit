@@ -7,7 +7,7 @@
 			<h1 class="h3">{{translate('Client Packages')}}</h1>
 		</div>
 		<div class="col-md-6 text-md-right">
-			<a href="{{ route('client_package.create','client') }}" class="btn btn-primary">
+			<a href="{{ route('client_package.create','comprehensive') }}" class="btn btn-primary">
 				<span>{{translate('Create New Package')}}</span>
 			</a>
 		</div>
