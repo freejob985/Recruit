@@ -115,6 +115,7 @@
                         </span>
                     </p>
                     @endif
+                    @if(!empty($user_profile->user->userPackage))
                     <p class="text-muted">
                         <strong>{{ translate('Running Package') }} :</strong>
                         <span class="ml-2">
@@ -125,6 +126,7 @@
                             @endif
                         </span>
                     </p>
+                    @endif
                     <p class="text-muted"><strong>{{ translate('Balance') }} :</strong>
                         <span class="ml-2">
                             {{ single_price($user_profile->balance) }}
