@@ -163,6 +163,38 @@
                     </ul>
                 </li>
 
+
+                #################
+                <li class="aiz-side-nav-item">
+                    <a href="#" class="aiz-side-nav-link">
+                        <i class="las la-user-tie aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{translate('Clients')}}</span>
+                        <span class="aiz-side-nav-arrow"></span>
+                    </a>
+                    <ul class="aiz-side-nav-list level-2">
+                        <li class="aiz-side-nav-item">
+                            <a href="{{ route('all_clients') }}"
+                                class="aiz-side-nav-link {{ areActiveRoutes(['client_info_show'])}}">
+                                <span class="aiz-side-nav-text">{{translate('All Clients')}}</span>
+                            </a>
+                        </li>
+                        <li class="aiz-side-nav-item">
+                            <a href="{{ route('client_package.index', 'client') }}"
+                                class="aiz-side-nav-link {{ areActiveRoutes(['client_package.index', 'client_package.create', 'client_package.edit'])}}">
+                                <span class="aiz-side-nav-text">{{translate('Client Packages')}}</span>
+                            </a>
+                        </li>
+                        <li class="aiz-side-nav-item">
+                            <a href="{{ route('client_badges_index') }}"
+                                class="aiz-side-nav-link {{ areActiveRoutes(['client_badges_index', 'client_badges_edit'])}}">
+                                <span class="aiz-side-nav-text">{{translate('Client Badges')}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                #################
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">
                         <i class="las la-star-half-alt aiz-side-nav-icon"></i>
