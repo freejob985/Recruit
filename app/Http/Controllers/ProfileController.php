@@ -47,6 +47,7 @@ class ProfileController extends Controller
     public function user_profile()
     {
         $user_profile = UserProfile::where('user_id', Auth::user()->id)->where('user_role_id', Session::get('role_id'))->first();
+        dd($user_profile);
         $verification = Verification::where('user_id', Auth::user()->id)->where('type', 'identity_verification')->first();
         if (isClient()) {
             return view('frontend.default.user.client.settings.profile', compact('user_profile', 'verification'));
