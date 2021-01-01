@@ -19,10 +19,12 @@
                 <h1 class="h5 mb-1">{{ $user->name }}</h1>
                 <h5 class="mb-3 fs-12 opacity-60">{{ '@' . $user->user_name }}</h5>
                 <div class="text-center">
+                    @if(!empty($user_profile->package))
                     @if ($user_profile->package != null)
                     <span class="avatar avatar-square avatar-xxs" title="{{ $user_profile->package->name }}">
                         <img src="{{ my_asset($user_profile->package->badge) }}">
                     </span>
+                    @endif
                     @endif
                     @foreach ($user->badges as $key => $user_badge)
                         @if ($user_badge->badge != null)
