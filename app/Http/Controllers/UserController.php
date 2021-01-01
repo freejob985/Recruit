@@ -99,7 +99,7 @@ class UserController extends Controller
     public function all_comprehensive(Request $request)
     {
         $id_=$this->comprehensive();
-        dd(id_);
+        dd($id_);
         $sort_search = null;
         $col_name = null;
         $query = null;
