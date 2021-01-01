@@ -98,6 +98,7 @@
                             @if ($user->address->postal_code != null) {{ $user->address->postal_code }} @endif
                         </span>
                     </p>
+                    @if(!empty($user_profile->skills))
                     <p class="text-muted">
                         <strong>{{ translate('Skills') }} :</strong>
                         <span class="ml-2">
@@ -113,6 +114,7 @@
                             @endif
                         </span>
                     </p>
+                    @endif
                     <p class="text-muted">
                         <strong>{{ translate('Running Package') }} :</strong>
                         <span class="ml-2">
