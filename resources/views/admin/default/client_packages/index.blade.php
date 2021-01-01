@@ -36,6 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @dd("Catch errors for script and full tracking ( 1)");
                         @foreach($packages as $key => $package)
                             <tr>
                                 <td>{{ ($key+1) + ($packages->currentPage() - 1)*$packages->perPage() }}</td>
