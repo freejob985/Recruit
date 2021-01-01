@@ -79,6 +79,10 @@
                                             <a class="btn btn-soft-primary btn-icon btn-circle btn-sm btn icon" href="{{ route('client_info_show', $client->user->user_name) }}" title="{{translate('View Details')}}">
                                                 <i class="las la-eye"></i>
                                             </a>
+
+                                            <a class="btn btn-soft-primary btn-icon btn-circle btn-sm btn icon" href="{{ route('freelancer_info_show', $client->user->user_name) }}" title="{{translate('View Details')}}">
+                                                <i class="las la-eye"></i>
+                                            </a>
                                         @endif
                                         @can ('freelancer_delete')
                                             @if ($client->user->banned)
