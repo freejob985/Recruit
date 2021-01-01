@@ -30,6 +30,10 @@ class PackageController extends Controller
         }
     }
 
+
+
+    
+
     public function create($type)
     {
         if (Gate::allows('freelancer_package_create') || Gate::allows('client_package_create')) {
