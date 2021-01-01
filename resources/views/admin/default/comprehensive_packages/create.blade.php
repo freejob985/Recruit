@@ -15,7 +15,7 @@
                             <label for="name">{{translate('Package Name')}}</label>
                             <input type="text" id="name" name="name" required placeholder="{{ translate('Eg. Bronze Package') }}" class="form-control">
                         </div>
-                        <input type="hidden" id="type" name="type" value="freelancer" class="form-control">
+                        <input type="hidden" id="type" name="type" value="comprehensive" class="form-control">
                         <div class="form-group mb-3">
                             <label for="price">{{translate('Price')}}</label>
                             <input type="number" min="0" step="0.01" id="price" name="price" required placeholder="{{ translate('Eg. 25') }}" class="form-control">
@@ -107,6 +107,11 @@
                             <input type="number" min="0" step="1" id="bio_text_limit" name="bio_text_limit" required placeholder="{{ translate('Eg. 120') }}" class="form-control">
                         </div>
                         {{--  ###########################  --}}
+
+               
+
+
+                        
                         <div class="form-group mb-3">
                             <label>{{translate('Enable Client Following ?')}}</label>
                             <div>
@@ -116,6 +121,7 @@
                                 </label>
                             </div>
                         </div>
+                        
                         <div class="form-group mb-3">
                             <label>{{translate('Recommended ?')}}</label>
                             <div>
