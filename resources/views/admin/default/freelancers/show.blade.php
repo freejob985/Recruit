@@ -70,10 +70,12 @@
                         <strong>{{ translate('Full Name') }} :</strong>
                         <span class="ml-2">{{ $user->name }}</span>
                     </p>
+                    @if(!empty($user_profile->gender))
                     <p class="text-muted">
                         <strong>{{ translate('Gender') }} :</strong>
                         <span class="ml-2">{{ $user_profile->gender }}</span>
                     </p>
+                    @endif
                     <p class="text-muted">
                         <strong>{{ translate('Mobile') }} :</strong>
                         <span class="ml-2">{{ $user->address->phone }}</span>
