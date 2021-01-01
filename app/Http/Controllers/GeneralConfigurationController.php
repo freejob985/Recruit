@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Utility\SettingsUtility;
 use Gate;
+use Illuminate\Http\Request;
+use DB;
 
 class GeneralConfigurationController extends Controller
 {
@@ -13,12 +14,26 @@ class GeneralConfigurationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function CourseProgresss($id)
+    {
+
+        if ($id == "active") {
+            //dd(11);
+            DB::table('course_progress')->where('id', '=', 1)->update(['Status' => "active"]);
+            return back()->with('success', 'Status changed to Active !');
+        } else {
+            // dd(1);
+            DB::table('course_progress')->where('id', '=', 1)->update(['Status' => "Not activate"]);
+            return back()->with('delete', 'Status changed to Deactive !');
+        }
+    }
+
     public function index()
     {
         if (Gate::allows('system_configuration')) {
             return view('admin.default.system_configurations.general_config.index');
-        }
-        else {
+        } else {
             flash(__('You do not have access permission!'))->warning();
             return back();
         }
@@ -34,20 +49,19 @@ class GeneralConfigurationController extends Controller
     {
         $inputs = $request->except(['_token']);
 
-        if(!empty($inputs)){
+        if (!empty($inputs)) {
             foreach ($inputs as $type => $value) {
-                SettingsUtility::save_settings($type,trim($value));
-                if($type == 'site_name'){
+                SettingsUtility::save_settings($type, trim($value));
+                if ($type == 'site_name') {
                     $system_config = new SystemConfigurationController;
-                    $system_config->overWriteEnvFile("APP_NAME",trim($value));
+                    $system_config->overWriteEnvFile("APP_NAME", trim($value));
                 }
-                if($type == 'timezone'){
+                if ($type == 'timezone') {
                     $system_config = new SystemConfigurationController;
-                    $system_config->overWriteEnvFile('APP_TIMEZONE',trim($value));
+                    $system_config->overWriteEnvFile('APP_TIMEZONE', trim($value));
                 }
             }
         }
-
 
         flash("Settings updated successfully")->success();
         return back();

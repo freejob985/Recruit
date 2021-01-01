@@ -89,9 +89,12 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 	Route::post('cancel-project-request/accepted', 'CancelProjectController@request_accepted')->name('cancel-project-request.request_accepted');
 
 	//general config
+
+	
     Route::resource('general-config', 'GeneralConfigurationController')->only([
         'index', 'store'
     ]);
+    Route::post('general-config/Maintenance','GeneralConfigurationController@CourseProgresss')->name('CourseProgresss.quick');
 
     //email config
     Route::resource('email-config', 'EmailConfigurationController')->only([
