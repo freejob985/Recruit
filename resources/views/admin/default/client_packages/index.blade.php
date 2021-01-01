@@ -42,7 +42,6 @@
                                 <td>{{$package->name}}</td>
                                 <td class="text-capitalize">{{str_replace('_', ' ', $package->type)}}</td>
 
-                                @dd("Catch errors for script and full tracking ( 1)".str_replace('_', ' ', $package->type));
 
 								<td>{{count(\App\Models\PackagePayment::where('package_id', $package->id)->get())}} {{ translate('times') }}</td>
                                 <td><img class="img-md" src="{{ my_asset($package->badge) }}" height="45px" alt="{{translate('badge')}}"></td>
@@ -63,6 +62,8 @@
                                     @endif
                                 </td>
 								<td class="text-right">
+                                    @dd("Catch errors for script and full tracking ( 1)".str_replace('_', ' ', $package->type));
+
                                     <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{ route($package->type.'_package.edit', encrypt($package->id)) }}" title="{{ translate('Edit') }}">
                                         <i class="las la-edit"></i>
                                     </a>
