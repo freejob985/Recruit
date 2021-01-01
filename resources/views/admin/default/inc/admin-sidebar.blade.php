@@ -173,7 +173,7 @@
                     </a>
                     <ul class="aiz-side-nav-list level-2">
                         <li class="aiz-side-nav-item">
-                            <a href="{{ route('all_clients') }}"
+                            <a href="{{ route('all_comprehensive') }}"
                                 class="aiz-side-nav-link {{ areActiveRoutes(['client_info_show'])}}">
                                 <span class="aiz-side-nav-text">جميع الاعضاء</span>
                             </a>

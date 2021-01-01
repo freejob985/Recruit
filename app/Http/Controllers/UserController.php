@@ -87,6 +87,38 @@ class UserController extends Controller
         return view('admin.default.clients.index', compact('clients', 'sort_search', 'col_name', 'query'));
     }
 
+    public function all_comprehensive(Request $request)
+    {
+        $sort_search = null;
+        $col_name = null;
+        $query = null;
+        $clients = UserProfile::where('user_role_id', '3');
+        if ($request->search != null || $request->type != null) {
+            if ($request->has('search')){
+                $sort_search = $request->search;
+                $user_ids = User::where(function($user) use ($sort_search){
+                    $user->where('name', 'like', '%'.$sort_search.'%')->orWhere('email', 'like', '%'.$sort_search.'%');
+                })->pluck('id')->toArray();
+                $clients = $clients->where(function($client) use ($user_ids){
+                    $client->whereIn('user_id', $user_ids);
+                });
+            }
+            if ($request->type != null){
+                $var = explode(",", $request->type);
+                $col_name = $var[0];
+                $query = $var[1];
+                $clients = $clients->orderBy($col_name, $query);
+            }
+
+            $clients = $clients->paginate(10);
+        }
+        else {
+            $clients = $clients->orderBy('created_at', 'desc')->paginate(10);
+        }
+        return view('admin.default.comprehensive.index', compact('clients', 'sort_search', 'col_name', 'query'));
+    }
+
+
     public function freelancer_details($user_name)
     {
         if (Gate::allows('single_freelancer_details')) {
