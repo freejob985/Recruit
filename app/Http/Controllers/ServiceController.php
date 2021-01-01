@@ -11,6 +11,7 @@ use Auth;
 use DB;
 use Illuminate\Http\Request;
 use Validator;
+use Session;
 
 class ServiceController extends Controller
 {
