@@ -21,7 +21,7 @@ class PackageController extends Controller
             } elseif ($type == 'client') {
                 return view('admin.default.client_packages.index', compact('packages'));
             } else {
-                dd("Catch errors for script and full tracking ( 2 )");
+                return view('admin.default.comprehensive_packages.index', compact('packages'));
             }
         } else {
             flash(__('You do not have access permission!'))->warning();
