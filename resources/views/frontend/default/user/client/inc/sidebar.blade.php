@@ -189,7 +189,7 @@
                     <a href="{{ route('Transformations', ["Freelancer"]) }}" class="aiz-side-nav-link ">
 
                         <span class="aiz-side-nav-text"><button type="button"
-                                class="btn btn-success btn-sm btn-block">Profile Freelancer</button></span>
+                                class="btn btn-success btn-sm btn-block">بروفايل المستقل</button></span>
                     </a>
                 </li>
                 @endif
