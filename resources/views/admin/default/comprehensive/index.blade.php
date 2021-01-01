@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <form class="" id="sort_clients" action="" method="GET">
+            {{--  <form class="" id="sort_clients" action="" method="GET">
                 <div class="card-header row gutters-5">
                     <div class="col text-center text-md-left">
                         <h5 class="mb-md-0 h6">{{translate('Client Lists')}}</h5>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form>  --}}
             <div class="card-body">
                 <table class="table aiz-table mb-0">
                     <thead>
