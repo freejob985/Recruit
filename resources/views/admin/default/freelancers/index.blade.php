@@ -63,10 +63,12 @@
                                     </td>
                                 @endif
                                 <td>
+                                    @if(!empty($freelancer->user->userPackage))
                                     @if ($freelancer->user->userPackage != null && $freelancer->user->userPackage->package != null)
                                     {{$freelancer->user->userPackage->package->name}}
                                     @else
                                         {{translate('Package Removed')}}
+                                    @endif
                                     @endif
                                 </td>
                                 @php
