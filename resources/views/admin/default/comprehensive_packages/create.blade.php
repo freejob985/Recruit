@@ -93,6 +93,7 @@
 
                         <hr>
                         {{--  #######################  --}}
+                        <P>المشاريع</P>
                         <div class="form-group mb-3">
                             <label for="fixed_limit">{{translate('Limitation for Fixed Project Posting')}}</label>
                             <input type="number" min="0" step="1" id="fixed_limit" name="fixed_limit" required placeholder="{{ translate('Eg. 10') }}" class="form-control">
