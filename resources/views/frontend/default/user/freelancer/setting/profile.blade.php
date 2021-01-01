@@ -110,9 +110,11 @@ label{display: block;padding: 20px 0 5px 0;}
                                     </label>
 
                                     <div id="uname_response"></div>
+                                    @if(!empty($user_profile->user->user_name))
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="username" name="username" @if ($user_profile->user->user_name != null) value="{{ $user_profile->user->user_name }}" @endif placeholder="Enter your username" aria-label="Enter your username" required aria-describedby="usernameLabel" data-msg="Please enter your username." data-error-class="u-has-error" data-success-class="u-has-success">
                                     </div>
+                                    @endif
                                 </div>
                                 <!-- Input -->
                                 <div class="form-group">
