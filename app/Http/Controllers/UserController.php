@@ -87,28 +87,24 @@ class UserController extends Controller
         return view('admin.default.clients.index', compact('clients', 'sort_search', 'col_name', 'query'));
     }
 
+    public function comprehensive(){
+      //  ->where('language',$lang)
+        $id=array();
+        foreach (DB::table('users')->orderBy('id', 'desc')->get() as $item_item_user) {
+            $id[]=  $item_item_user->id;
+        }
+        return $id;
+    }
     public function all_comprehensive(Request $request)
     {
+        $id_=$this->comprehensive();
+        dd(id_);
         $sort_search = null;
         $col_name = null;
         $query = null;
         $clients = UserProfile::where('user_role_id', '3');
         if ($request->search != null || $request->type != null) {
-            if ($request->has('search')){
-                $sort_search = $request->search;
-                $user_ids = User::where(function($user) use ($sort_search){
-                    $user->where('name', 'like', '%'.$sort_search.'%')->orWhere('email', 'like', '%'.$sort_search.'%');
-                })->pluck('id')->toArray();
-                $clients = $clients->where(function($client) use ($user_ids){
-                    $client->whereIn('user_id', $user_ids);
-                });
-            }
-            if ($request->type != null){
-                $var = explode(",", $request->type);
-                $col_name = $var[0];
-                $query = $var[1];
-                $clients = $clients->orderBy($col_name, $query);
-            }
+      
 
             $clients = $clients->paginate(10);
         }
