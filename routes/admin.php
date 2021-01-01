@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/client-package-index/{type}', 'PackageController@index')->name('client_package.index');
     Route::get('/client-package-create/{type}', 'PackageController@create')->name('client_package.create');
     Route::get('/client-package-edit/{id}', 'PackageController@edit')->name('client_package.edit');
-    Route::get('/client-package-edit/{id}', 'PackageController@edit')->name('comprehensive_package.edit');
+    Route::get('/client-package-edit/comprehensive_package/{id}', 'PackageController@edit')->name('comprehensive_package.edit');
 
 
     //LanguageController for Freelancer and Client
