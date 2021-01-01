@@ -89,9 +89,9 @@ class UserController extends Controller
     }
 
     public function comprehensive(){
-      //  ->where('language',$lang)
+      //  
         $id=array();
-        foreach (DB::table('users')->orderBy('id', 'desc')->get() as $item_item_user) {
+        foreach (DB::table('users')->orderBy('id', 'desc')->where('comprehensive',"1")->get() as $item_item_user) {
             $id[]=  $item_item_user->id;
         }
         return $id;
@@ -99,7 +99,7 @@ class UserController extends Controller
     public function all_comprehensive(Request $request)
     {
         $id_=$this->comprehensive();
-        dd($id_);
+       // dd($id_);
         $sort_search = null;
         $col_name = null;
         $query = null;
@@ -110,7 +110,7 @@ class UserController extends Controller
             $clients = $clients->paginate(10);
         }
         else {
-            $clients = $clients->orderBy('created_at', 'desc')->paginate(10);
+            $clients = $clients->orderBy('created_at', 'desc')->whereIn('user_id', $id_)->paginate(10);
         }
         return view('admin.default.comprehensive.index', compact('clients', 'sort_search', 'col_name', 'query'));
     }
