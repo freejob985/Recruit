@@ -33,7 +33,7 @@ Route::delete('/aiz-uploader/destroy/{id}', 'AizUploadController@destroy');
 Route::post('/aiz-uploader/get_file_by_ids', 'AizUploadController@get_preview_files');
 Route::get('/aiz-uploader/download/{id}', 'AizUploadController@attachment_download')->name('download_attachment');
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home')->middleware(['Maintenance']);
 
 Auth::routes(['verify' => true]);
 Route::get('/admin/login', 'HomeController@admin_login')->name('admin.login');
