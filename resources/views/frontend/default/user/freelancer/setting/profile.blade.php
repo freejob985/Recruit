@@ -139,10 +139,9 @@ label{display: block;padding: 20px 0 5px 0;}
                                         </div>
                                     </div>
                                     @endif
-                                    if(!empty($user_profile->user->user_name))
+                                    
                                     @if ($user_profile->user->email_verified_at == null)
                                         <span class="alert alert-danger d-block py-1 mt-1">{{ translate('Verify your email address') }}</span>
-                                    @endif
                                     @endif
                                 </div>
                                 <div class="js-form-message">
