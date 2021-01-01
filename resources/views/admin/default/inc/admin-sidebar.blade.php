@@ -164,7 +164,7 @@
                 </li>
 
 
-                #################
+                {{--  #################  --}}
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">
                         <i class="las la-user-tie aiz-side-nav-icon"></i>
@@ -189,7 +189,7 @@
                 </li>
 
 
-                #################
+                {{--  #################  --}}
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">
                         <i class="las la-star-half-alt aiz-side-nav-icon"></i>
