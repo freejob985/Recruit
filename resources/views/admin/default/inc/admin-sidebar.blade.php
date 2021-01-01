@@ -88,7 +88,7 @@
                     <a href="{{ route('admin.notifications.all') }}"
                         class="aiz-side-nav-link {{ areActiveRoutes(['verification_requests', 'verification_request_details'])}}">
                         <i class="las la-user-circle aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">All notifications<a href="#"> </a></span>
+                        <span class="aiz-side-nav-text">جميع الاشعارات<a href="#"> </a></span>
                     </a>
 
                 </li>
