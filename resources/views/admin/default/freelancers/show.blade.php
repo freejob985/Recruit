@@ -139,7 +139,7 @@
         </div>
     </div>
     <div class="col-xl-8">
-
+        @if(!empty($user_profile->bio))
         @if ($user_profile->bio != null)
         <div class="card">
             <div class="card-header">
@@ -149,6 +149,7 @@
                 {{ $user_profile->bio }}
             </div>
         </div>
+        @endif
         @endif
         @if ($user_account != null)
             <div class="card">
