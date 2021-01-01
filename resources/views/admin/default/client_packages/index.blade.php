@@ -63,7 +63,7 @@
                                 </td>
 								<td class="text-right">
 
-                                    <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{ route($package->type.'-index_package.edit', encrypt($package->id)) }}" title="{{ translate('Edit') }}">
+                                    <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{ route($package->type.'_package.edit', encrypt($package->id)) }}" title="{{ translate('Edit') }}">
                                         <i class="las la-edit"></i>
                                     </a>
                                     <a href="#" class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete" data-href="{{route('package.destroy', $package->id)}}" title="{{ translate('Delete') }}">
