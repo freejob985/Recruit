@@ -62,7 +62,6 @@
                                     @endif
                                 </td>
 								<td class="text-right">
-                                    @dd("Catch errors for script and full tracking ( 1)".str_replace('_', ' ', $package->type));
 
                                     <a class="btn btn-soft-primary btn-icon btn-circle btn-sm" href="{{ route($package->type.'_package.edit', encrypt($package->id)) }}" title="{{ translate('Edit') }}">
                                         <i class="las la-edit"></i>
