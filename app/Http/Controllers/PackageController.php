@@ -256,7 +256,7 @@ class PackageController extends Controller
                 return view('frontend.default.user.freelancer.comprehensive', compact('packages'));
             } elseif (Auth::user()->comprehensive === "1") {
                 //       dd("Catch errors for script and full tracking ( 2 )");
-                $packages = Package::where('active', '1')->get();
+                $packages = Package::where('type', 'comprehensive')->get();
                 return view('frontend.default.user.freelancer.comprehensive', compact('packages'));
             }
         } else {
