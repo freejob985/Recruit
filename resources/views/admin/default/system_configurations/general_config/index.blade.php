@@ -77,7 +77,7 @@
                 @endphp
                 <form action="{{ route('CourseProgresss.quick',$order) }}" method="POST">
                     {{ csrf_field() }}
-                    <button type="Submit" class="btn btn-xs {{ $order == "active" ? 'btn-success' : 'btn-danger' }}">
+                    <button type="Submit" class="btn btn-xl btn-block {{ $order == "active" ? 'btn-success' : 'btn-danger' }}">
                         @if($order =="active")
                         تفعيل وضع الصيانة
                         @else
@@ -85,6 +85,7 @@
                         @endif
                     </button>
                 </form>
+                <a href="#" class="btn btn-info " role="button">Link Button</a>
 
             </div>
         </div>
