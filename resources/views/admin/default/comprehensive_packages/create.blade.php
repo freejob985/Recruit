@@ -90,6 +90,22 @@
                             <label for="service_limit">{{translate('Service Limit')}}</label>
                             <input type="number" min="0" step="1" id="service_limit" name="service_limit" required placeholder="{{ translate('Eg. 5') }}" class="form-control">
                         </div>
+
+                        <hr>
+                        {{--  #######################  --}}
+                        <div class="form-group mb-3">
+                            <label for="fixed_limit">{{translate('Limitation for Fixed Project Posting')}}</label>
+                            <input type="number" min="0" step="1" id="fixed_limit" name="fixed_limit" value="{{ $package->fixed_limit }}" required placeholder="{{ translate('Eg. 10') }}" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="long_term_limit">{{translate('Limitation for Long Term Project Posting')}}</label>
+                            <input type="number" min="0" step="1" id="long_term_limit" name="long_term_limit" value="{{ $package->long_term_limit }}" required placeholder="{{ translate('Eg. 10') }}" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="bio_text_limit">{{translate('Bio Word Limit')}}</label>
+                            <input type="number" min="0" step="1" id="bio_text_limit" name="bio_text_limit" value="{{ $package->bio_text_limit }}" required placeholder="{{ translate('Eg. 120') }}" class="form-control">
+                        </div>
+                        {{--  ###########################  --}}
                         <div class="form-group mb-3">
                             <label>{{translate('Enable Client Following ?')}}</label>
                             <div>
