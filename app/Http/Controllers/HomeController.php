@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Session;
-use Auth;
-use Hash;
-use App\User;
-use App\Models\Role;
-use App\Models\Package;
-use App\Models\Project;
 use App\Models\ChatThread;
-use App\Models\UserProfile;
-use App\Models\SystemConfiguration;
-use Carbon;
-use Illuminate\Support\Str;
+use App\Models\Project;
+use App\Models\Role;
 use App\Models\Service;
+use App\Models\UserProfile;
+use App\User;
+use Auth;
+use Carbon;
 use DB;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Session;
 
 class HomeController extends Controller
 {
@@ -28,7 +24,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-         //$this->middleware('Maintenance');
+        //$this->middleware('Maintenance');
     }
 
     /**
@@ -38,24 +34,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-if(Session::get('locale')==""){
-    
-   // dd("Catch errors for script and full tracking ( 2 )");
-    Session::put('locale', "sa");
+        if (Session::get('locale') == "") {
 
-    
-}
-     $freelancer_services = Service::orderBy('id', 'DESC')->paginate(8);
+            // dd("Catch errors for script and full tracking ( 2 )");
+            Session::put('locale', "sa");
+
+        }
+        $freelancer_services = Service::orderBy('id', 'DESC')->paginate(8);
 //$services = Auth::user()->services()->paginate(12);
 
-   //  @dd($freelancer_services);
+        //  @dd($freelancer_services);
         return view('frontend.default.index', compact('freelancer_services'));
     }
 
     //Admin login
     public function admin_login()
     {
-        if(Auth::check() && (auth()->user()->userRoles->first()->role->name == "Admin" || auth()->user()->userRoles->first()->role->role_type == "employee")){
+        if (Auth::check() && (auth()->user()->userRoles->first()->role->name == "Admin" || auth()->user()->userRoles->first()->role->role_type == "employee")) {
             return redirect()->route('home');
         }
         return view('auth.login');
@@ -64,7 +59,7 @@ if(Session::get('locale')==""){
     //User login
     public function login()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return redirect()->route('home');
         }
         return view('frontend.default.user_login');
@@ -75,13 +70,6 @@ if(Session::get('locale')==""){
         return view('admin.default.dashboard');
     }
 
-
-
-
-
-
-
-
     //Redirect user-based dashboard
     public function dashboard()
     {
@@ -89,46 +77,44 @@ if(Session::get('locale')==""){
         $user_profile = UserProfile::where('user_id', Auth::user()->id)->where('user_role_id', $role_id)->first();
         Session::put('role_id', $role_id);
 
-        if(isFreelancer()){
+        if (isFreelancer()) {
             return view('frontend.default.user.freelancer.dashboard');
-        }
-        elseif(isClient()){
+        } elseif (isClient()) {
             return view('frontend.default.user.client.dashboard');
-        }
-        elseif(comprehensive()){
+        } elseif (comprehensive()) {
             return view('frontend.default.user.client.comprehensive');
-        }
-        else {
+        } else {
             abort(404);
         }
     }
 
-
-
     public function Transformation($type)
     {
-       // dd($type);
         if (Auth::check()) {
             if ($type == "Freelancer") {
-           //     dd("Catch errors for script and full tracking ( 3 )");
+                Session::put('role_id', "2");
                 DB::table('user_roles')
-                ->where('user_id', Auth::user()->id)
-                ->update(['role_id' => "2"]);
-            } else {
-                        //     dd(Auth::user()->id);
+                    ->where('user_id', Auth::user()->id)
+                    ->update(['role_id' => "2"]);
+                DB::table('user_profiles')
+                    ->where('user_id', Auth::user()->id)
+                    ->update(['user_role_id' => "2"]);
 
+            } else {
+                Session::put('role_id', "3");
                 DB::table('user_roles')
-                ->where('user_id', Auth::user()->id)
-                ->update(['role_id' => "3"]);
+                    ->where('user_id', Auth::user()->id)
+                    ->update(['role_id' => "3"]);
+                DB::table('user_profiles')
+                    ->where('user_id', Auth::user()->id)
+                    ->update(['user_role_id' => "3"]);
             }
         }
 
-return redirect()->route('dashboard');
+        return redirect()->route('dashboard');
 
     }
 
-
-    
     //Show details info of specific project
     public function project_details($slug)
     {
@@ -143,12 +129,12 @@ return redirect()->route('dashboard');
         if ($project != null) {
             $id = $project->id;
             $user = Auth::user()->id;
-            $chat_thread = ChatThread::where(function ($query) use ($id){
-                                $query->where('project_id', '=', $id);
-                            })->where(function ($query) use ($user){
-                                $query->where('sender_user_id', '=', $user)
-                                      ->orWhere('receiver_user_id', '=', $user);
-                            })->first();
+            $chat_thread = ChatThread::where(function ($query) use ($id) {
+                $query->where('project_id', '=', $id);
+            })->where(function ($query) use ($user) {
+                $query->where('sender_user_id', '=', $user)
+                    ->orWhere('receiver_user_id', '=', $user);
+            })->first();
         }
         return view('frontend.default.private_project_single', compact('project', 'chat_thread'));
     }
@@ -206,26 +192,26 @@ return redirect()->route('dashboard');
         if ($user_name != null) {
             $response = "<span style='color: red; font-size: 8pt'>User name already Exist.</span>";
             return $response;
-        }
-        else {
+        } else {
             $response = "<span style='color: green; font-size: 8pt'>Available.</span>";
             return $response;
         }
     }
 
-    public function send_email_verification_request(Request $request){
+    public function send_email_verification_request(Request $request)
+    {
         return send_email_verification_email();
     }
 
-    public function verification_confirmation($code){
+    public function verification_confirmation($code)
+    {
         $user = User::where('verification_code', $code)->first();
-        if($user != null){
+        if ($user != null) {
             $user->email_verified_at = Carbon::now();
             $user->save();
 
             flash('Your email has been verified successfully')->success();
-        }
-        else {
+        } else {
             flash('Sorry, we could not verifiy you. Please try again')->danger();
         }
 

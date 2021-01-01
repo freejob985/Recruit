@@ -117,6 +117,14 @@ class RegisterController extends Controller
                     'comprehensive' => 1,
                 ]);
 
+                DB::table('type')->insert([
+                    'User' => $request->input('User'),
+                    'Title' => $request->input('Title'),
+                    'Topic' => $request->input('Topic'),
+                    'Link' => $request->input('Link'),
+                    'Calling' => $request->input('Calling'),
+                            ]);
+
         }
         $address = new Address;
         $user->address()->save($address);
