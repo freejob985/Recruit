@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-         $this->middleware('Maintenance');
+         //$this->middleware('Maintenance');
     }
 
     /**
