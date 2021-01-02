@@ -5,12 +5,6 @@
 
 
     <div class="container">
-
-
-
-
-
-
         <img class="img-responsive img-thumbnail" src="https://wallpapercave.com/wp/wp3931369.jpg" alt="Chania">
         <form action=" {{ route('Advertisement.st') }}" method="POST" enctype="multipart/form-data">
             @csrf
