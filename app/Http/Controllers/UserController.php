@@ -153,7 +153,7 @@ class UserController extends Controller
         else {
             $clients = $clients->orderBy('created_at', 'desc')->whereIn('user_id', $id_)->paginate(10);
         }
-        return view('admin.default.ads.index', compact('clients', 'sort_search', 'col_name', 'query'));
+        return view('admin.default.ads.show', compact('clients', 'sort_search', 'col_name', 'query'));
     }
     
 
