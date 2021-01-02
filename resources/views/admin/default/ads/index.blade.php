@@ -81,9 +81,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination aiz-pagination-center">
-            {{ $clients->appends(request()->input())->links() }}
-        </div>
+  
     </div>
 </div>
 </div>
