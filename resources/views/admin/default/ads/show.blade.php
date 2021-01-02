@@ -4,6 +4,8 @@
 <div class="row">
 
 
+<div class="container">
+
 
 
     <form action="" method="POST" enctype="multipart/form-data">
@@ -84,6 +86,6 @@
     <input type="submit" style="background: #011a25;background: #20a049;padding: 1%;font-size: 16px;"
         class="btn btn-success save btn-large btn-block" value="  {{ session()->get('alert-success') }}" />
     @endif
-
+</div>
 </div>
 @endsection
