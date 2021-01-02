@@ -123,6 +123,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     ##########
     Route::get('/all/comprehensive', 'UserController@all_comprehensive')->name('all_comprehensive');
 
+    Route::get('/all/Advertisement', 'UserController@Advertisement')->name('Advertisement.admin');
+
+
+
+    
+
     Route::get('/client-info/{user_name}', 'UserController@client_details')->name('client_info_show');
 
     Route::get('user/ban/{id}', 'UserController@destroy')->name('user.ban');
