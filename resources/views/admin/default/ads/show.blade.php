@@ -47,7 +47,7 @@
         <div class="form-row">
             <div class="col-md-12 mb-4">
                 <label for="end">end</label>
-                <input type="text" placeholder="Please enter data" class="form-control" name="end" id="end"
+                <input type="number" placeholder="Please enter data" class="form-control" name="end" id="end"
                     placeholder="" value="{{Request::old('end')}}">
                 @if ($errors->has('end'))
                 <div class="invalid-feedback">
