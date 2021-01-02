@@ -562,17 +562,23 @@ function hex2rgba($color, $opacity = false)
     return $output;
 }
 
-function googel($pag,$pos)
+function googel($pag, $pos)
 {
     $ads = DB::table('ads')->where('page', $pag)->where('pos', $pos)->get();
-   // dd($ads);
+    // dd($ads);
     $date = date("d-m-Y");
     foreach ($ads as $item) {
-        if ((int) dateDiff($date, $item->end)-1 == 0  ) {  
+        if ((int) dateDiff($date, $item->end) - 1 == 0) {
+            DB::table('ads')
+                ->where('id', $item->id)
+                ->update([
+                    'status' => "1",
+                ]);
             echo "<p><img class='img-responsive' src='https://ads-blocker.com/wp-content/uploads/2015/02/ads-blocker-logo.png' alt='Chania'></p><br>";
-        }else if($item->status == 0)  {
+        } else if ($item->status == 0) {
+
+        } else {
             $Code = $item->Code;
-            dd($Code);
             echo "<p>$Code</p><br>";
         }
     }
