@@ -293,8 +293,8 @@
         </section>
 	@endif  
 	
-	{!! googel("Main","Top") !!}
-	sssssssssss
+{{ googel("Main","Top") }}
+	
 @endsection
 
 
