@@ -13,7 +13,16 @@
         <img class="img-responsive img-thumbnail" src="https://wallpapercave.com/wp/wp3931369.jpg" alt="Chania">
         <form action=" {{ route('Advertisement.st') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
+            <div class="form-row">
+                <label for="Title"> مكان الاعلان</label>
+                <select class="selectpicker col-12" name="pos" data-show-subtext="true">
+                    <option value="Down">اسفل</option>
+                    <option value="Top"> أعلي</option>
+                </select>
+                @if ($errors->has('page'))
+                <span class="helper-text" data-error="wrong" data-success="right">{{ $errors->first('page') }}</span>
+                @endif
+            </div>
             {{-- ##########################(from bg)################################### --}}
             <div class="form-row">
                 <label for="Title"> الصفحة</label>

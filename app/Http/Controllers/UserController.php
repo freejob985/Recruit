@@ -156,6 +156,7 @@ class UserController extends Controller
         ]);
         DB::table('ads')->insert([
             'page' => $request->input('page'),
+            'pos' => $request->input('pos'),
             'Title' => $request->input('Title'),
             'Code' => $request->input('Code'),
             'end' => date('Y-m-d', strtotime('+ ' . $request->input('end') . 'days')),
