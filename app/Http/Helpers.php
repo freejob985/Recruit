@@ -580,6 +580,7 @@ function googel($pag)
         } else {
             if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0) {
                 $Code = $item->Code;
+                dd($Code);
                 echo "<p>$Code</p><br>";
             }
         }
