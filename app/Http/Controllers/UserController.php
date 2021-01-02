@@ -140,7 +140,7 @@ class UserController extends Controller
 
     public function Advertisement_add__(Request $request)
     {
-        dd($request->all());
+        dd(date('Y-m-d', strtotime('+ ' . $request->input('end') . 'days')));
 
         $this->validate($request, [
             'page' => 'required',
@@ -156,6 +156,14 @@ class UserController extends Controller
             'end.required' => ' تاريخ الانتهاء مطلوب',
             'status.required' => ' حالة الاعلان مطلوب',
 
+        ]);
+
+        DB::table('ads')->insert([
+            'page' => $request->input('page'),
+            'Title' => $request->input('Title'),
+            'Code' => $request->input('Code'),
+            'end' => date('Y-m-d', strtotime('+ ' . $request->input('end') . 'days')),
+            'status' => $request->input('status'),
         ]);
 
         //  dd("Catch errors for script and full tracking ( 1 )");
