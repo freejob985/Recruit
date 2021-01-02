@@ -291,9 +291,11 @@
         		</div>
         	</div>
         </section>
-    @endif      
+	@endif  
+	
+	{!! googel("Main","Top") !!}
+	
 @endsection
 
 
 
-{!! googel("Main","Top") !!}
