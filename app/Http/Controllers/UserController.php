@@ -150,27 +150,17 @@ class UserController extends Controller
             'status' => 'required',
 
         ], [
-            'page.required' => ' The data field is required',
-            'Title.required' => ' The data field is required',
-            'Code.required' => ' The data field is required',
-            'end.required' => ' The data field is required',
-            'status.required' => ' The data field is required',
+            'page.required' => ' عنوان الصفحة مطلوب',
+            'Title.required' => ' عنوان الاعلان مطلوب',
+            'Code.required' => ' كود الاعلان مطلوب',
+            'end.required' => ' تاريخ الانتهاء مطلوب',
+            'status.required' => ' حالة الاعلان مطلوب',
 
         ]);
-        
+
         //  dd("Catch errors for script and full tracking ( 1 )");
-        $id_ = $this->comprehensive();
-        // dd($id_);
-        $sort_search = null;
-        $col_name = null;
-        $query = null;
-        $clients = UserProfile::where('user_role_id', '3');
-        if ($request->search != null || $request->type != null) {
-            $clients = $clients->paginate(10);
-        } else {
-            $clients = $clients->orderBy('created_at', 'desc')->whereIn('user_id', $id_)->paginate(10);
-        }
-        return view('admin.default.ads.show', compact('clients', 'sort_search', 'col_name', 'query'));
+        return redirect()->back()->with('alert-success', 'تم اضافة اعلان جديد ');
+
     }
 
     public function freelancer_details($user_name)
