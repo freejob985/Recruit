@@ -8,12 +8,6 @@ use App\Models\SystemConfiguration;
 use App\User;
 use DB;
 
-
-
-
-
-
-
 if (!function_exists('areActiveRoutes')) {
     function areActiveRoutes(array $routes, $output = "active")
     {
@@ -568,25 +562,25 @@ function hex2rgba($color, $opacity = false)
     return $output;
 }
 
-
 function googel($pag)
 {
-   // dd("Catch errors for script and full tracking ( 4 )");
+    // dd("Catch errors for script and full tracking ( 4 )");
 
     $ads = DB::table('ads')->where('page', $pag)->get();
-    $date=date("d-m-Y");
-  //  dd($ads);
-   // dd("Catch errors for script and full tracking ( 2 )". $ads);
+    $date = date("d-m-Y");
+    //  dd($ads);
+    // dd("Catch errors for script and full tracking ( 2 )". $ads);
     foreach ($ads as $item) {
-    //    dd((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0);
-        if ((int) dateDiff($date, $item->end) == 0 and $item->status==0) {
-      //      dd("Catch errors for script and full tracking ( 2 )");
+        //    dd((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0);
+        dd((int) dateDiff($date, $item->end));
+        if ((int) dateDiff($date, $item->end) == 0 and $item->status == 0) {
+            //      dd("Catch errors for script and full tracking ( 2 )");
             echo "<p><img class='img-responsive' src='https://ads-blocker.com/wp-content/uploads/2015/02/ads-blocker-logo.png' alt='Chania'></p><br>";
         } else {
-                $Code = $item->Code;
-            
-                echo "<p>$Code</p><br>";
-            
+            $Code = $item->Code;
+
+            echo "<p>$Code</p><br>";
+
         }
     }
 }
