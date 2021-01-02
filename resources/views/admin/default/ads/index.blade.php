@@ -88,6 +88,7 @@
 </div>
 </div>
 </div>
+{{ googel() }}
 @endsection
 @section('script')
 <script type="text/javascript">

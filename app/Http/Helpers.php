@@ -1,25 +1,53 @@
 <?php
 
-use App\Models\Currency;
-use App\Models\SystemConfiguration;
-use App\Models\Role;
 use App\Mail\EmailManager;
 use App\Models\ChatThread;
+use App\Models\Currency;
+use App\Models\Role;
+use App\Models\SystemConfiguration;
 use App\User;
 
+
+
+
+
+ function dateDiff($date1, $date2)
+{
+    $date1_ts = strtotime($date1);
+    $date2_ts = strtotime($date2);
+    $diff = $date2_ts - $date1_ts;
+    return round($diff / 86400);
+}
+
+function googel($pag)
+{   
+    $ads = DB::table('ads')->where('page', $pag)->get();
+    $date=date("d-m-Y");
+        foreach ($ads as $item) {
+            if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0){
+            echo "<p><img class='img-responsive' src='https://ads-blocker.com/wp-content/uploads/2015/02/ads-blocker-logo.png' alt='Chania'></p><br>";
+        }else{
+            if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0){
+                $Code = $item->Code;
+                echo "<p>$Code</p><br>";
+        }
+    }
+}
 if (!function_exists('areActiveRoutes')) {
     function areActiveRoutes(array $routes, $output = "active")
     {
         foreach ($routes as $route) {
-            if (Route::currentRouteName() == $route) return $output;
+            if (Route::currentRouteName() == $route) {
+                return $output;
+            }
+
         }
     }
 }
 
-
 function function_that_shortens_text_but_doesnt_cutoff_words($text, $length)
 {
-    if(strlen($text) > $length) {
+    if (strlen($text) > $length) {
         $text = substr($text, 0, strpos($text, ' ', $length));
     }
 
@@ -27,50 +55,45 @@ function function_that_shortens_text_but_doesnt_cutoff_words($text, $length)
 }
 
 ///The function is created to find out the user data
-function get_current_user__($id,$coulam){
-    return  $users = DB::table('users')->where('id', $id)->value($coulam);     
+function get_current_user__($id, $coulam)
+{
+    return $users = DB::table('users')->where('id', $id)->value($coulam);
 }
-
 
 ///The function is created to find out the get_current_projects__ data
 
-function get_current_projects__($id,$coulam){
-    return  $users = DB::table('projects')->where('id', $id)->value($coulam);     
+function get_current_projects__($id, $coulam)
+{
+    return $users = DB::table('projects')->where('id', $id)->value($coulam);
 }
 
-
 function userOnlineStatusonline()
-    {
-        $users = User::all();
-        $id=0;
-        foreach ($users as $user) {
-            if (Cache::has('user-is-online-' . $user->id)) {
-                $id++;
-                // else
+{
+    $users = User::all();
+    $id = 0;
+    foreach ($users as $user) {
+        if (Cache::has('user-is-online-' . $user->id)) {
+            $id++;
+            // else
             //     echo "User " . $user->name . " is offline.";
-            }
-           return $id;
         }
+        return $id;
     }
+}
 
-
-
-    function userOnlineStatusoffline()
-    {
-        $users = User::all();
-        $id=0;
-        foreach ($users as $user) {
-            if (! Cache::has('user-is-online-' . $user->id)) {
-                $id++;
-                // else
+function userOnlineStatusoffline()
+{
+    $users = User::all();
+    $id = 0;
+    foreach ($users as $user) {
+        if (!Cache::has('user-is-online-' . $user->id)) {
+            $id++;
+            // else
             //     echo "User " . $user->name . " is offline.";
-            }
-           return $id;
         }
+        return $id;
     }
-
-
-
+}
 
 function saveJSONFile($code, $data)
 {
@@ -88,7 +111,6 @@ function openJSONFile($code)
     }
     return $jsonString;
 }
-
 
 //formats currency
 if (!function_exists('format_price')) {
@@ -142,7 +164,6 @@ function formatBytes($bytes)
     $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
     $pow = min($pow, count($units) - 1);
 
-
     return round($bytes) . ' ' . $units[$pow];
 }
 
@@ -164,7 +185,7 @@ if (!function_exists('renderStarRating')) {
         $emptyStar = "<i class = 'las la-star'></i>";
         $rating = $rating <= $maxRating ? $rating : $maxRating;
 
-        $fullStarCount = (int)$rating;
+        $fullStarCount = (int) $rating;
         $halfStarCount = ceil($rating) - $fullStarCount;
         $emptyStarCount = $maxRating - $fullStarCount - $halfStarCount;
 
@@ -217,7 +238,6 @@ if (!function_exists('comprehensive')) {
         return getUserRole() == "comprehensive" ? 1 : 0;
     }
 }
-
 
 if (!function_exists('isFreelancer')) {
     function isFreelancer()
@@ -299,11 +319,10 @@ if (!function_exists('get_email_by_user_id')) {
     }
 }
 
-
 if (!function_exists('email_footer_text')) {
     function email_footer_text()
     {
-        return env('APP_NAME')." © 2020 All rights reserved";
+        return env('APP_NAME') . " © 2020 All rights reserved";
     }
 }
 
@@ -338,8 +357,9 @@ if (!function_exists('send_email_verification_email')) {
     }
 }
 
-function timezones(){
-    $timezones = Array(
+function timezones()
+{
+    $timezones = array(
         '(GMT-12:00) International Date Line West' => 'Pacific/Kwajalein',
         '(GMT-11:00) Midway Island' => 'Pacific/Midway',
         '(GMT-11:00) Samoa' => 'Pacific/Apia',
@@ -482,7 +502,7 @@ function timezones(){
         '(GMT+12:00) Kamchatka' => 'Asia/Kamchatka',
         '(GMT+12:00) Marshall Is.' => 'Pacific/Fiji',
         '(GMT+12:00) Wellington' => 'Pacific/Auckland',
-        '(GMT+13:00) Nuku\'alofa' => 'Pacific/Tongatapu'
+        '(GMT+13:00) Nuku\'alofa' => 'Pacific/Tongatapu',
     );
 
     return $timezones;
@@ -494,20 +514,20 @@ if (!function_exists('app_timezone')) {
         return config('app.timezone');
     }
 }
-function dateDiff($date1, $date2) 
-	{
-	  $date1_ts = strtotime($date1);
-	  $date2_ts = strtotime($date2);
-	  $diff = $date2_ts - $date1_ts;
-	  return round($diff / 86400);
-	}
+function dateDiff($date1, $date2)
+{
+    $date1_ts = strtotime($date1);
+    $date2_ts = strtotime($date2);
+    $diff = $date2_ts - $date1_ts;
+    return round($diff / 86400);
+}
 if (!function_exists('chat_threads')) {
     function chat_threads()
     {
-        $data  = array();
+        $data = array();
         if (Auth::check()) {
             foreach (ChatThread::where('sender_user_id', Auth::user()->id)->orWhere('receiver_user_id', Auth::user()->id)->get() as $key => $chat_thread) {
-                if(count($chat_thread->chats()->where('sender_user_id', '!=', Auth::user()->id)->where('seen', 0)->get()) > 0){
+                if (count($chat_thread->chats()->where('sender_user_id', '!=', Auth::user()->id)->where('seen', 0)->get()) > 0) {
                     $data[] = $chat_thread->id;
                 }
             }
@@ -520,29 +540,31 @@ if (!function_exists('chat_threads')) {
 if (!function_exists('get_setting')) {
     function get_setting($key, $default = "")
     {
-        $setting =  \App\Utility\SettingsUtility::get_settings_value($key) ;
+        $setting = \App\Utility\SettingsUtility::get_settings_value($key);
         return $setting == "" ? $default : $setting;
     }
 }
 
-function hex2rgba($color, $opacity = false) {
+function hex2rgba($color, $opacity = false)
+{
 
     $default = 'rgb(0,0,0)';
 
     //Return default if no color provided
-    if(empty($color))
-          return $default;
+    if (empty($color)) {
+        return $default;
+    }
 
     //Sanitize $color if "#" is provided
-    if ($color[0] == '#' ) {
-        $color = substr( $color, 1 );
+    if ($color[0] == '#') {
+        $color = substr($color, 1);
     }
 
     //Check if color has 6 or 3 characters and get values
     if (strlen($color) == 6) {
-        $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-    } elseif ( strlen( $color ) == 3 ) {
-        $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+        $hex = array($color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5]);
+    } elseif (strlen($color) == 3) {
+        $hex = array($color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2]);
     } else {
         return $default;
     }
@@ -551,16 +573,16 @@ function hex2rgba($color, $opacity = false) {
     $rgb = array_map('hexdec', $hex);
 
     //Check if opacity is set(rgba or rgb)
-    if($opacity){
-        if(abs($opacity) > 1)
+    if ($opacity) {
+        if (abs($opacity) > 1) {
             $opacity = 1.0;
-        $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+        }
+
+        $output = 'rgba(' . implode(",", $rgb) . ',' . $opacity . ')';
     } else {
-        $output = 'rgb('.implode(",",$rgb).')';
+        $output = 'rgb(' . implode(",", $rgb) . ')';
     }
 
     //Return rgb(a) color string
     return $output;
 }
-
-?>
