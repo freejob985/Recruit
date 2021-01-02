@@ -11,20 +11,7 @@ use DB;
 
 
 
-function googel($pag)
-{   
-    $ads = DB::table('ads')->where('page', $pag)->get();
-    $date=date("d-m-Y");
-        foreach ($ads as $item) {
-            if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0){
-            echo "<p><img class='img-responsive' src='https://ads-blocker.com/wp-content/uploads/2015/02/ads-blocker-logo.png' alt='Chania'></p><br>";
-        }else{
-            if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0){
-                $Code = $item->Code;
-                echo "<p>$Code</p><br>";
-        }
-    }
-}
+
 
 
 if (!function_exists('areActiveRoutes')) {
@@ -579,4 +566,21 @@ function hex2rgba($color, $opacity = false)
 
     //Return rgb(a) color string
     return $output;
+}
+
+
+function googel($pag)
+{
+    $ads = DB::table('ads')->where('page', $pag)->get();
+    $date=date("d-m-Y");
+    foreach ($ads as $item) {
+        if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0) {
+            echo "<p><img class='img-responsive' src='https://ads-blocker.com/wp-content/uploads/2015/02/ads-blocker-logo.png' alt='Chania'></p><br>";
+        } else {
+            if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0) {
+                $Code = $item->Code;
+                echo "<p>$Code</p><br>";
+            }
+        }
+    }
 }
