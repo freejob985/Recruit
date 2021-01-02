@@ -12,6 +12,7 @@
             @csrf
             {{-- ##########################(from bg)################################### --}}
             <div class="form-row">
+                <label for="Title"> الصفحة</label>
                 <select class="selectpicker col-12" name="page" data-show-subtext="true">
                     <option value="Main">الرئسية</option>
                     <option value="Projects">صفحة المشاريع</option>
@@ -26,8 +27,8 @@
             {{-- ############################################################# --}}
             <div class="form-row">
                 <div class="col-md-12 mb-4">
-                    <label for="Title">Title</label>
-                    <input type="text" placeholder="Please enter data" class="form-control" name="Title" id="Title"
+                    <label for="Title">عنوان الاعلان</label>
+                    <input type="text" placeholder="عنوان الاعلان" class="form-control" name="Title" id="Title"
                         placeholder="" value="{{Request::old('Title')}}">
                     @if ($errors->has('Title'))
                     <div class="invalid-feedback">
@@ -48,7 +49,7 @@
             {{-- ############################################################# --}}
             <div class="form-row">
                 <div class="col-md-12 mb-4">
-                    <label for="end">end</label>
+                    <label for="end">عدد الايام</label>
                     <input type="number" placeholder="عدد الايام" class="form-control" name="end" id="end"
                         placeholder="" value="{{Request::old('end')}}">
                     @if ($errors->has('end'))
@@ -61,9 +62,9 @@
             {{-- ############################################################# --}}
             <div class="form-row">
                 <div class="col-md-12 mb-4">
-                    <label for="status">status</label>
-                    <input type="text" placeholder="Please enter data" class="form-control" name="status" id="status"
-                        placeholder="" value="{{Request::old('status')}}">
+                    <label for="status">عرض الاعلان</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" checked>Option 1</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
                     @if ($errors->has('status'))
                     <div class="invalid-feedback">
                         {{ $errors->first('status') }}
