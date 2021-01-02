@@ -62,9 +62,8 @@
             {{-- ############################################################# --}}
             <div class="form-row">
                 <div class="col-md-12 mb-4">
-                    <label for="status">عرض الاعلان</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" checked>Option 1</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" checked> عرض الاعلان</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">عدم العرض</label>
                     @if ($errors->has('status'))
                     <div class="invalid-feedback">
                         {{ $errors->first('status') }}
