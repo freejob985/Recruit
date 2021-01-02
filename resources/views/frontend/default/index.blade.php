@@ -32,9 +32,10 @@
         	</div>
         </section>
     @endif
-	{{ googel("Main","Top") }}
+	
     @if( get_setting('how_it_works_show') == 'on')
         <section class="pt-7 pb-4 bg-white">
+			{{ googel("Main","Top") }}
     	<div class="container">
     		<div class="text-center mb-5 w-xl-50 w-lg-75 mx-auto wow slideInDown">
     			<h2 class="fw-700">{{ get_setting('how_it_works_title') }}</h2>
@@ -75,7 +76,7 @@
     	</div>
     </section>
     @endif
-   
+	
      @if ( get_setting('featured_category_show') == 'on')
         <section class="pt-7 pb-5">
         	<div class="container">
