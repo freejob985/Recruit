@@ -37,18 +37,12 @@
             </div>
         </div>
         {{-- ############################################################# --}}
-        <div class="form-row">
-            <div class="col-md-12 mb-4">
-                <label for="Code">Code</label>
-                <input type="text" placeholder="Please enter data" class="form-control" name="Code" id="Code"
-                    placeholder="" value="{{Request::old('Code')}}">
-                @if ($errors->has('Code'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('Code') }}
-                </div>
-                @endif
-            </div>
-        </div>
+        <div class="form-group">
+            <textarea  placeholder="Please enter data  Code" name="Code"   style="resize: none;font-size: 18px;font-weight: 600;color: white !important;background: #0e1726;"class="form-control" rows="5" id="comment"></textarea>
+            @if ($errors->has('Code'))
+            <span class="helper-text" data-error="wrong" data-success="right">{{ $errors->first('Code') }}</span>
+            @endif
+          </div>
         {{-- ############################################################# --}}
         <div class="form-row">
             <div class="col-md-12 mb-4">
