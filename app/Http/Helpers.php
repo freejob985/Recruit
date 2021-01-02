@@ -11,28 +11,8 @@ use App\User;
 
 
 
- function dateDiff($date1, $date2)
-{
-    $date1_ts = strtotime($date1);
-    $date2_ts = strtotime($date2);
-    $diff = $date2_ts - $date1_ts;
-    return round($diff / 86400);
-}
 
-function googel($pag)
-{   
-    $ads = DB::table('ads')->where('page', $pag)->get();
-    $date=date("d-m-Y");
-        foreach ($ads as $item) {
-            if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0){
-            echo "<p><img class='img-responsive' src='https://ads-blocker.com/wp-content/uploads/2015/02/ads-blocker-logo.png' alt='Chania'></p><br>";
-        }else{
-            if ((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0){
-                $Code = $item->Code;
-                echo "<p>$Code</p><br>";
-        }
-    }
-}
+
 if (!function_exists('areActiveRoutes')) {
     function areActiveRoutes(array $routes, $output = "active")
     {
@@ -514,7 +494,13 @@ if (!function_exists('app_timezone')) {
         return config('app.timezone');
     }
 }
-
+function dateDiff($date1, $date2)
+{
+    $date1_ts = strtotime($date1);
+    $date2_ts = strtotime($date2);
+    $diff = $date2_ts - $date1_ts;
+    return round($diff / 86400);
+}
 if (!function_exists('chat_threads')) {
     function chat_threads()
     {
