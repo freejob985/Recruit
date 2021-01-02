@@ -57,9 +57,13 @@
                     <td>{{ $item_ads->page}}</td>
                     <td>{{ $item_ads->Title}}</td>
                     <td>{{ $item_ads->end}}</td>
-                    <td>0</td>
-                    <td>{{ $item_ads->status}}
-
+                    <td>
+                        @php
+                        $date=date("d-m-Y");
+                        echo dateDiff($date,$item_ads->end);
+                        @endphp
+                    </td>
+                    <td>
                         <form action="{{ route('Advertisement.status',$item_ads->id) }}" method="POST">
                             {{ csrf_field() }}
                             <button type="Submit"
