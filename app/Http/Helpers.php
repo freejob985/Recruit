@@ -565,6 +565,7 @@ function hex2rgba($color, $opacity = false)
 function googel($pag,$pos)
 {
     $ads = DB::table('ads')->where('page', $pag)->where('pos', $pos)->get();
+    dd($ads);
     $date = date("d-m-Y");
     foreach ($ads as $item) {
         if ((int) dateDiff($date, $item->end)-1 == 0  ) {  
