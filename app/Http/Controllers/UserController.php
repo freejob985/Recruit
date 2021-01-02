@@ -146,7 +146,6 @@ class UserController extends Controller
             'Code' => 'required',
             'end' => 'required',
             'status' => 'required',
-
         ], [
             'page.required' => ' عنوان الصفحة مطلوب',
             'Title.required' => ' عنوان الاعلان مطلوب',
