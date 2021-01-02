@@ -58,7 +58,21 @@
                     <td>{{ $item_ads->Title}}</td>
                     <td>{{ $item_ads->end}}</td>
                     <td>0</td>
-                    <td>{{ $item_ads->status}}</td>
+                    <td>{{ $item_ads->status}}
+
+                        <form action="{{ route('Advertisement.status',$item_ads->id) }}" method="POST">
+                            {{ csrf_field() }}
+                            <button type="Submit"
+                                class="btn btn-xs {{ $item_ads->status ==1 ? 'btn-success' : 'btn-danger' }}">
+                                @if($item_ads->status ==1)
+                                الاعلان مفعل
+                                @else
+                                الاعلان غير مفعل
+                                @endif
+                            </button>
+                        </form>
+
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

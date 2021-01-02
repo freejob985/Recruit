@@ -167,6 +167,20 @@ class UserController extends Controller
 
     }
 
+    public function CourseProgresss($id)
+    {
+        $CourseProgress = DB::table('ads')->find($id);
+        if ($CourseProgress->status == 0) {
+            //dd(11);
+            DB::table('ads')->where('id', '=', $id)->update(['status' => "1"]);
+            return back()->with('success', 'Status changed to Active !');
+        } else {
+            // dd(1);
+            DB::table('ads')->where('id', '=', $id)->update(['status' => "0"]);
+            return back()->with('delete', 'Status changed to Deactive !');
+        }
+    }
+
     public function freelancer_details($user_name)
     {
         if (Gate::allows('single_freelancer_details')) {
