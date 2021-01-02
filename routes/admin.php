@@ -126,6 +126,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/add/Advertisement', 'UserController@Advertisement_add')->name('Advertisement.add');
     Route::post('/add/Advertisement/st', 'UserController@Advertisement_add__')->name('Advertisement.st');
     Route::post('/add/Advertisement/status/{id}', 'UserController@CourseProgresss')->name('Advertisement.status');
+    
 
 
     Route::get('/client-info/{user_name}', 'UserController@client_details')->name('client_info_show');
