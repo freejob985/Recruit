@@ -13,10 +13,11 @@
             {{-- ##########################(from bg)################################### --}}
             <div class="form-row">
                 <select class="selectpicker col-12" name="page" data-show-subtext="true">
-                    <option>Arabic</option>
-                    <option>English</option>
-                    <option>English</option>
-                    <option>English</option>
+                    <option value="Main">الرئسية</option>
+                    <option value="Projects">صفحة المشاريع</option>
+                    <option value="Services">صفحة الخدمات</option>
+                    <option value="Register">صفحة التسجيل</option>
+                    <option value="login"> صفحة تسجيل الدخول</option>
                 </select>
                 @if ($errors->has('page'))
                 <span class="helper-text" data-error="wrong" data-success="right">{{ $errors->first('page') }}</span>
