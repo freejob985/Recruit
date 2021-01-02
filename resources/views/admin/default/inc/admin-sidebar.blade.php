@@ -78,7 +78,8 @@
                     <a href="{{ route('verification_requests') }}"
                         class="aiz-side-nav-link {{ areActiveRoutes(['verification_requests', 'verification_request_details'])}}">
                         <i class="las la-user-check aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{translate('Verification Requests')}} &nbsp; <span class="badge" style="background: #da612d;">
+                        <span class="aiz-side-nav-text">{{translate('Verification Requests')}} &nbsp; <span
+                                class="badge" style="background: #da612d;">
                                 {{ DB::table('verifications')->where('verified',"0")->count() }}
                             </span><a href="#"> </a></span>
                     </a>
@@ -184,38 +185,36 @@
                                 <span class="aiz-side-nav-text">الباقات</span>
                             </a>
                         </li>
-              
+
                     </ul>
                 </li>
 
 
                 {{--  #################  --}}
-                                {{--  #################  --}}
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <i class="las la-user-tie aiz-side-nav-icon"></i>
-                                        <span class="aiz-side-nav-text"> الاعلانات</span>
-                                        <span class="aiz-side-nav-arrow"></span>
-                                    </a>
-                                    <ul class="aiz-side-nav-list level-2">
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('Advertisement.admin') }}"
-                                                class="aiz-side-nav-link {{ areActiveRoutes(['client_info_show'])}}">
-                                                <span class="aiz-side-nav-text">جميع الاعلانات</span>
-                                            </a>
-                                        </li>
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('client_package.index', 'comprehensive') }}"
-                                                class="aiz-side-nav-link {{ areActiveRoutes(['client_package.index', 'client_package.create', 'client_package.edit'])}}">
-                                                <span class="aiz-side-nav-text">اضافة اعلان </span>
-                                            </a>
-                                        </li>
-                              
-                                    </ul>
-                                </li>
-                
-                
-                                {{--  #################  --}}
+                {{--  #################  --}}
+                <li class="aiz-side-nav-item">
+                    <a href="#" class="aiz-side-nav-link">
+                        <i class="las la-user-tie aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text"> الاعلانات</span>
+                        <span class="aiz-side-nav-arrow"></span>
+                    </a>
+                    <ul class="aiz-side-nav-list level-2">
+                        <li class="aiz-side-nav-item">
+                            <a href="{{ route('Advertisement.admin') }}"
+                                class="aiz-side-nav-link {{ areActiveRoutes(['client_info_show'])}}">
+                                <span class="aiz-side-nav-text">جميع الاعلانات</span>
+                            </a>
+                        </li>
+                        <li class="aiz-side-nav-item">
+                            <a href="{{ route('client_package.index', 'comprehensive') }}"
+                                class="aiz-side-nav-link {{ areActiveRoutes(['client_package.index', 'client_package.create', 'client_package.edit'])}}">
+                                <span class="aiz-side-nav-text">اضافة اعلان </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                {{--  #################  --}}
 
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">

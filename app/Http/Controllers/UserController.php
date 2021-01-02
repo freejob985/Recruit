@@ -120,7 +120,7 @@ class UserController extends Controller
 
     public function Advertisement(Request $request)
     {
-        dd("Catch errors for script and full tracking ( 1 )");
+      //  dd("Catch errors for script and full tracking ( 1 )");
         $id_=$this->comprehensive();
        // dd($id_);
         $sort_search = null;
@@ -135,7 +135,7 @@ class UserController extends Controller
         else {
             $clients = $clients->orderBy('created_at', 'desc')->whereIn('user_id', $id_)->paginate(10);
         }
-        return view('admin.default.comprehensive.index', compact('clients', 'sort_search', 'col_name', 'query'));
+        return view('admin.default.ads.index', compact('clients', 'sort_search', 'col_name', 'query'));
     }
 
 
