@@ -10,7 +10,7 @@
 
 
 
-        <img class="img-responsive img-thumbnail" src="https://d1sjtleuqoc1be.cloudfront.net/wp-content/uploads/2017/10/05094823/rendered-860x574.jpg" alt="Chania">
+        <img class="img-responsive img-thumbnail" src="https://wallpapercave.com/wp/wp3931369.jpg" alt="Chania">
         <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             {{-- ##########################(from bg)################################### --}}
