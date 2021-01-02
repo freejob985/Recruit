@@ -295,4 +295,5 @@
 @endsection
 
 
-{{ googel("Main","Top") }}
+
+{!! googel("Main","Top") !!}
