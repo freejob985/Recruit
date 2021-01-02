@@ -571,6 +571,7 @@ function hex2rgba($color, $opacity = false)
 
 function googel($pag)
 {
+    dd("Catch errors for script and full tracking ( 4 )");
 
     $ads = DB::table('ads')->where('page', $pag)->get();
     $date=date("d-m-Y");
