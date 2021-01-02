@@ -17,7 +17,7 @@
                 @if ($errors->has('page'))
                 <span class="helper-text" data-error="wrong" data-success="right">{{ $errors->first('page') }}</span>
                 @endif
-            </div>
+            2</div>
             {{-- ##########################(from bg)################################### --}}
             <div class="form-row">
                 <label for="Title"> الصفحة</label>
