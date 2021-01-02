@@ -206,7 +206,7 @@
                             </a>
                         </li>
                         <li class="aiz-side-nav-item">
-                            <a href="{{ route('client_package.index', 'comprehensive') }}"
+                            <a href="{{ route('Advertisement.add') }}"
                                 class="aiz-side-nav-link {{ areActiveRoutes(['client_package.index', 'client_package.create', 'client_package.edit'])}}">
                                 <span class="aiz-side-nav-text">اضافة اعلان </span>
                             </a>

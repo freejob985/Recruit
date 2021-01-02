@@ -37,7 +37,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/client-package-edit/{id}', 'PackageController@edit')->name('client_package.edit');
     Route::get('/client-package-edit/comprehensive_package/{id}', 'PackageController@edit')->name('comprehensive_package.edit');
 
-
     //LanguageController for Freelancer and Client
     Route::resource('/languages', 'LanguageController');
     Route::get('/languages/destroy/{id}', 'LanguageController@destroy')->name('languages.destroy');
@@ -122,12 +121,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/all-clients', 'UserController@all_clients')->name('all_clients');
     ##########
     Route::get('/all/comprehensive', 'UserController@all_comprehensive')->name('all_comprehensive');
-
+     ##########
     Route::get('/all/Advertisement', 'UserController@Advertisement')->name('Advertisement.admin');
-
-
-
-    
+    Route::get('/add/Advertisement', 'UserController@Advertisement_add')->name('Advertisement.add');
 
     Route::get('/client-info/{user_name}', 'UserController@client_details')->name('client_info_show');
 
