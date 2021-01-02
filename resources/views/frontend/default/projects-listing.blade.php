@@ -2,6 +2,7 @@
 
 @section('content')
     <section class="py-4 py-lg-5">
+        {{ googel("Projects","Top") }}
         <div class="container">
             @if($keyword != null)
                 <div class="row">
@@ -257,6 +258,7 @@
                 </div>
             </form>
         </div>
+        {{ googel("Projects","Down") }}
     </section>
 @endsection
 

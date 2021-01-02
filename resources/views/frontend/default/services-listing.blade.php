@@ -3,6 +3,7 @@
 @section('content')
 
 <section class="py-5">
+    {{ googel("Services","Top") }}
     <div class="container">
         <div class="d-flex align-items-start">            
 
@@ -41,6 +42,7 @@
             </div>
         </div>
     </div>
+    {{ googel("Services","Down") }}
 </section>
 
 @endsection

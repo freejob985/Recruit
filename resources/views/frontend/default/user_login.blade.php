@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="py-4 py-lg-5">
+    {{ googel("login","Top") }} 
     <div class="container">
         <div class="row">
             <div class="col-xxl-4 col-xl-5 col-md-7 mx-auto">
@@ -116,6 +117,7 @@
             </div>
         </div>
     </div>
+    {{ googel("login","Down") }}
 </div>
 
 
