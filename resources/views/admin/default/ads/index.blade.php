@@ -88,7 +88,7 @@
 </div>
 </div>
 </div>
-{{ googel() }}
+{{ googel("Main") }}
 @endsection
 @section('script')
 <script type="text/javascript">
