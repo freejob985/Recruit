@@ -572,6 +572,7 @@ function googel($pag,$pos)
             echo "<p><img class='img-responsive' src='https://ads-blocker.com/wp-content/uploads/2015/02/ads-blocker-logo.png' alt='Chania'></p><br>";
         }else if($item->status == 0)  {
             $Code = $item->Code;
+            dd($Code);
             echo "<p>$Code</p><br>";
         }
     }
