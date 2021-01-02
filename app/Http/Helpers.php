@@ -573,7 +573,7 @@ function googel($pag)
     foreach ($ads as $item) {
         //    dd((int) dateDiff($date, $end=$item->end) == 0 and $item->status==0);
       //  dd((int) dateDiff($date, $item->end));
-        if ((int) dateDiff($date, $item->end) == 0 and $item->status == 0) {
+        if ((int) dateDiff($date, $item->end)-1 == 0 and $item->status == 0) {
             //      dd("Catch errors for script and full tracking ( 2 )");
             echo "<p><img class='img-responsive' src='https://ads-blocker.com/wp-content/uploads/2015/02/ads-blocker-logo.png' alt='Chania'></p><br>";
         } else {
