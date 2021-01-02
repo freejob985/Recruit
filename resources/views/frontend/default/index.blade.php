@@ -32,7 +32,7 @@
         	</div>
         </section>
     @endif
-    
+	{{ googel("Main","Top") }}
     @if( get_setting('how_it_works_show') == 'on')
         <section class="pt-7 pb-4 bg-white">
     	<div class="container">
@@ -293,7 +293,7 @@
         </section>
 	@endif  
 	
-{{ googel("Main","Top") }}
+    {{ googel("Main","Down") }}
 	
 @endsection
 

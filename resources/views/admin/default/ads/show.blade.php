@@ -10,6 +10,7 @@
 
 
 
+
         <img class="img-responsive img-thumbnail" src="https://wallpapercave.com/wp/wp3931369.jpg" alt="Chania">
         <form action=" {{ route('Advertisement.st') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -32,6 +33,7 @@
                     <option value="Services">صفحة الخدمات</option>
                     <option value="Register">صفحة التسجيل</option>
                     <option value="login"> صفحة تسجيل الدخول</option>
+                    <option value="freelancer">المستقلين</option>
                 </select>
                 @if ($errors->has('page'))
                 <span class="helper-text" data-error="wrong" data-success="right">{{ $errors->first('page') }}</span>
