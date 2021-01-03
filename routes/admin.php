@@ -128,6 +128,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::post('/add/Advertisement/status/{id}', 'UserController@CourseProgresss')->name('Advertisement.status');
     Route::get('/Advertisement/edit/{id}', 'UserController@Advertisement_edit_pag')->name('Advertisement.edit');
     Route::get('/Advertisement/dell/{id}', 'UserController@Advertisement_dell')->name('Advertisement.dell');
+    Route::get('/Advertisement/updat/{id}', 'UserController@Advertisement_edit_pag')->name('Advertisement.updat');
 
 
 

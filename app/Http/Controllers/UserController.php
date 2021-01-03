@@ -121,41 +121,34 @@ class UserController extends Controller
         return view('admin.default.ads.index', compact('clients', 'sort_search', 'col_name', 'query'));
     }
 
-
-
-    public function Advertisement_edit(Request $request)
+    public function Advertisement_edit(Request $request, $id)
     {
-
-        $id_ = $this->comprehensive();
-        // dd($id_);
-        $sort_search = null;
-        $col_name = null;
-        $query = null;
-        $clients = UserProfile::where('user_role_id', '3');
-        if ($request->search != null || $request->type != null) {
-            $clients = $clients->paginate(10);
-        } else {
-            $clients = $clients->orderBy('created_at', 'desc')->whereIn('user_id', $id_)->paginate(10);
-        }
-        return view('admin.default.ads.show', compact('clients', 'sort_search', 'col_name', 'query'));
+       // dd($request->all());
+        DB::table('ads')
+            ->where('id', $id)
+            ->update([
+                'page' => $request->input('page'),
+                'pos' => $request->input('pos'),
+                'Title' => $request->input('Title'),
+                'Code' => $request->input('Code'),
+                'end' => date('Y-m-d', strtotime('+ ' . $request->input('end') . 'days')),
+                'status' => $request->input('status'),
+            ]);
+        return redirect()->back()->with('alert-success', 'تم التعديل بنجاح');
     }
 
     public function Advertisement_edit_pag($id)
     {
-        $ads= DB::table('ads')->find($id);
-        return view('admin.default.ads.edit',compact('ads'));
+        $ads = DB::table('ads')->find($id);
+        return view('admin.default.ads.edit', compact('ads'));
     }
-
 
     public function Advertisement_dell($id)
     {
         DB::table('ads')->where('id', '=', $id)->delete();
         return redirect()->back()->with('alert-success', 'ssss');
 
-
     }
-
-
 
     public function Advertisement_add(Request $request)
     {
@@ -173,9 +166,6 @@ class UserController extends Controller
         }
         return view('admin.default.ads.show', compact('clients', 'sort_search', 'col_name', 'query'));
     }
-
-
-
 
     public function Advertisement_add__(Request $request)
     {
