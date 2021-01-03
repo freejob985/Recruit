@@ -147,7 +147,9 @@ class UserController extends Controller
     public function Advertisement_dell($id)
     {
         DB::table('ads')->where('id', '=', $id)->delete();
-        return view('admin.default.ads.index', compact('clients', 'sort_search', 'col_name', 'query'));
+        return redirect()->back()->with('alert-success', 'ssss');
+
+
     }
 
 
