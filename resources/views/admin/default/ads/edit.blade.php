@@ -10,7 +10,7 @@
     <div class="container">
         <img class="img-responsive img-thumbnail" src="https://wallpapercave.com/wp/wp3931369.jpg" alt="Chania">
         <form action=" {{ route('Advertisement.updat', [$ads->id]) }}" method="POST" enctype="multipart/form-data">
-            {{ method_field('PATCH') }}
+ 
             @csrf
             <div class="form-row">
                 <label for="Title"> مكان الاعلان</label>
