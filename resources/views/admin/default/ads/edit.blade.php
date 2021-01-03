@@ -91,7 +91,7 @@
 
             {{-- ##########################(end bg)################################### --}}
             <input type="submit" style="background: #011a25;" class="btn btn-primary btn-large btn-block"
-                value="اضافة موضوع جديد" />
+                value="التعديل علي الاعلان" />
         </form>
         <br>
         @if(session()->has('alert-success'))
