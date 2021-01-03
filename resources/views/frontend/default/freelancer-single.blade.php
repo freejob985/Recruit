@@ -272,9 +272,10 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="h6 fw-600 mb-0">سسسس{{ $freelancer->name }}'s {{ translate('Education') }}</h4>
+                        <h4 class="h6 fw-600 mb-0">{{ $freelancer->Other_specialties }}'s تخصصات اخري</h4>
                     </div>
                     <div class="card-body">
+                        {{ $freelancer->name }}
                         <ul class="list-group list-group-flush">
                             @foreach ($freelancer->education_details as $key => $education)
                                 <li class="list-group-item px-0">
