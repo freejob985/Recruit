@@ -126,7 +126,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/add/Advertisement', 'UserController@Advertisement_add')->name('Advertisement.add');
     Route::post('/add/Advertisement/st', 'UserController@Advertisement_add__')->name('Advertisement.st');
     Route::post('/add/Advertisement/status/{id}', 'UserController@CourseProgresss')->name('Advertisement.status');
-    Route::get('/Advertisement/edit/{id}', 'UserController@Advertisement_edit')->name('Advertisement.edit');
+    Route::get('/Advertisement/edit/{id}', 'UserController@Advertisement_edit_pag')->name('Advertisement.edit');
     Route::get('/Advertisement/dell/{id}', 'UserController@Advertisement_dell')->name('Advertisement.dell');
 
 
