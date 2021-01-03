@@ -41,6 +41,7 @@
                     <th>تاريخ الانتهاء</th>
                     <th> عدد الايام</th>
                     <th>الحالة</th>
+                    <th>الاحداث</th>
 
                 </tr>
             </thead>
@@ -75,6 +76,12 @@
                                 @endif
                             </button>
                         </form>
+
+                    </td>
+                    <td>
+
+                        <a href="#" class="btn btn-info btn-block" role="button">تعديل</a>
+                        <a href="#" class="btn btn-info btn-block" role="button">حذف</a>
 
                     </td>
                 </tr>
