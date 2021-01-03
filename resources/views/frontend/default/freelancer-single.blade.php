@@ -132,7 +132,7 @@
                                                     <div class="text-muted">
                                                         {{ $portfolio->description }}
                                                     </div>
-                                                    <a href="#" class="btn btn-info btn-block" role="button">Link Button</a>
+                                                    <a href="{{ $portfolio->link }}" class="btn btn-info btn-block" role="button">رابط  </a>
                                                 </div>
                                             </div>
                                         </div>
