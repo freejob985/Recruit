@@ -211,7 +211,7 @@ class SupportTicketController extends Controller
     {
        // dd($request->all());
         $support_ticket = SupportTicket::findOrFail($request->support_ticket_id);
-
+        dd($support_ticket);
         $ticket_reply                     = new SupportTicketReply;
         $ticket_reply->support_ticket_id  = $request->support_ticket_id;
         $ticket_reply->replied_user_id    = Auth::user()->id;
