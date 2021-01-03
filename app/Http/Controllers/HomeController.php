@@ -189,9 +189,8 @@ class HomeController extends Controller
     {
         $freelancer = User::where('user_name', $username)->first();
         $Other_specialties = DB::table('user_profiles')->where('user_id', Auth::user()->id)->value('Other_specialties');
-        dd(explode(",",$Other_specialties));
-
-        return view('frontend.default.freelancer-single', compact('freelancer'));
+        $Other_specialties_array= explode(",",$Other_specialties);
+        return view('frontend.default.freelancer-single', compact('freelancer','Other_specialties_array'));
     }
 
     //check if username exists

@@ -277,14 +277,9 @@
                     <div class="card-body">
                         {{ $freelancer->name }}
                         <ul class="list-group list-group-flush">
-                            @php
-                          //  $Other_specialties=explode(",",$freelancer->Other_specialties);
-                            @endphp
-                            @foreach ($freelancer->education_details as $key => $education)
+                            @foreach ($Other_specialties_array as $key )
                                 <li class="list-group-item px-0">
-                                    <h6 class="fw-600 mb-1 fs-15">{{ $education->degree }}</h6>
-                                    <p class="mb-0 text-muted">{{ $education->school_name }}, {{ $education->country->name }}</p>
-                                    <p class="text-secondary">{{ $education->passing_year }}</p>
+                                    <span class="label label-primary">{{ $key  }}</span>&nbsp;
                                 </li>
                             @endforeach
                         </ul>
