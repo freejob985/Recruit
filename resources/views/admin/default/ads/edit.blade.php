@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="row">
-
-
-
-   
-  
     <div class="container">
         <img class="img-responsive img-thumbnail" src="https://wallpapercave.com/wp/wp3931369.jpg" alt="Chania">
         <form action=" {{ route('Advertisement.updat', [$ads->id]) }}" method="POST" enctype="multipart/form-data">
@@ -21,7 +16,7 @@
                 @if ($errors->has('page'))
                 <span class="helper-text" data-error="wrong" data-success="right">{{ $errors->first('page') }}</span>
                 @endif
-            2</div>
+            </div>
             {{-- ##########################(from bg)################################### --}}
             <div class="form-row">
                 <label for="Title"> الصفحة</label>
