@@ -125,6 +125,8 @@ class UserController extends Controller
 
     public function Advertisement_edit(Request $request)
     {
+
+        dd("Catch errors for script and full tracking ( 1 )");
         //  dd("Catch errors for script and full tracking ( 1 )");
         $id_ = $this->comprehensive();
         // dd($id_);
@@ -144,6 +146,7 @@ class UserController extends Controller
 
     public function Advertisement_dell(Request $request)
     {
+        dd("Catch errors for script and full tracking ( 2 )");
         //  dd("Catch errors for script and full tracking ( 1 )");
         $id_ = $this->comprehensive();
         // dd($id_);
