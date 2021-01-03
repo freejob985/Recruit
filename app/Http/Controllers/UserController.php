@@ -144,21 +144,9 @@ class UserController extends Controller
 
 
 
-    public function Advertisement_dell(Request $request)
+    public function Advertisement_dell($id)
     {
-        dd("Catch errors for script and full tracking ( 2 )");
-        //  dd("Catch errors for script and full tracking ( 1 )");
-        $id_ = $this->comprehensive();
-        // dd($id_);
-        $sort_search = null;
-        $col_name = null;
-        $query = null;
-        $clients = UserProfile::where('user_role_id', '3');
-        if ($request->search != null || $request->type != null) {
-            $clients = $clients->paginate(10);
-        } else {
-            $clients = $clients->orderBy('created_at', 'desc')->whereIn('user_id', $id_)->paginate(10);
-        }
+        DB::table('ads')->where('id', '=', $id)->delete();
         return view('admin.default.ads.index', compact('clients', 'sort_search', 'col_name', 'query'));
     }
 
