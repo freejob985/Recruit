@@ -123,7 +123,20 @@ class UserController extends Controller
 
     public function Advertisement_edit(Request $request, $id)
     {
-        dd($request->all());
+        $this->validate($request, [
+            'page' => 'required',
+            'Title' => 'required',
+            'Code' => 'required',
+            'end' => 'required',
+            'status' => 'required',
+        ], [
+            'page.required' => ' عنوان الصفحة مطلوب',
+            'Title.required' => ' عنوان الاعلان مطلوب',
+            'Code.required' => ' كود الاعلان مطلوب',
+            'end.required' => ' تاريخ الانتهاء مطلوب',
+            'status.required' => ' حالة الاعلان مطلوب',
+
+        ]);
         DB::table('ads')
             ->where('id', $id)
             ->update([
