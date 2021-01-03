@@ -278,9 +278,9 @@
                         {{ $freelancer->name }}
                         <ul class="list-group list-group-flush">
                             @foreach ($Other_specialties_array as $key )
-                                <li class="list-group-item px-0">
+                          
                                     <span class="label label-primary">{{ $key  }}</span>&nbsp;
-                                </li>
+                             
                             @endforeach
                         </ul>
                     </div>
