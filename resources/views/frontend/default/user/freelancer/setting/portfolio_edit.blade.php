@@ -31,7 +31,7 @@
                                 <input type="text" class="form-control" name="portfolio_name" value="{{ $user_portfolio->name }}" placeholder="Portfolio title">
                             </div>
                            <br>
-                           @if(!empty($item->user->name))
+                           @if(!empty($user_portfolio->link))
                             <div class="form-group">
                                 <label id="usernameLabel" class="form-label">
                                    رابط
