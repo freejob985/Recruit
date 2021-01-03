@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\SupportTicket;
 use App\Models\SupportCategory;
+use App\Models\SupportTicket;
 use App\Models\SupportTicketReply;
-use App\Models\SystemConfiguration;
 use App\Models\UserRole;
 use Auth;
+use DB;
 use Gate;
+use Illuminate\Http\Request;
+use Mail;
 
 class SupportTicketController extends Controller
 {
@@ -28,8 +29,7 @@ class SupportTicketController extends Controller
         if (Gate::allows('support_active_ticket_index')) {
             $support_tickets = SupportTicket::where('status', '0')->orderBy('created_at', 'desc')->paginate(10);
             return view('support_ticket.support_tickets.active_tickets', compact('support_tickets'));
-        }
-        else {
+        } else {
             flash(translate('You do not have access permission!'))->warning();
             return back();
         }
@@ -42,9 +42,9 @@ class SupportTicketController extends Controller
     }
 
     // deafult staff for assigning ticket
-    public function default_ticket_assigned_agent ()
+    public function default_ticket_assigned_agent()
     {
-        $staffs = UserRole::where('role_id','!=', 2)->where('role_id','!=', 3)->get();
+        $staffs = UserRole::where('role_id', '!=', 2)->where('role_id', '!=', 3)->get();
         return view('support_ticket.default_ticket_assigned_agent', compact('staffs'));
     }
 
@@ -55,12 +55,12 @@ class SupportTicketController extends Controller
      */
     public function create()
     {
-      //
+        //
     }
 
     public function user_ticket_create()
     {
-        $support_categories = SupportCategory::orderBy('created_at','desc')->get();
+        $support_categories = SupportCategory::orderBy('created_at', 'desc')->get();
         return view('support_ticket.frontend.support_ticket_create', compact('support_categories'));
     }
 
@@ -87,8 +87,7 @@ class SupportTicketController extends Controller
             $submit_id = $support_ticket->ticket_id;
             flash(translate('Support Ticket has been sent successfully'))->success();
             return view('support_ticket.frontend.support_ticket_create_success', compact('submit_id'));
-        }
-        else {
+        } else {
             flash(translate('Sorry! Something went wrong.'))->error();
             return back();
         }
@@ -121,12 +120,10 @@ class SupportTicketController extends Controller
             $my_tickets = SupportTicket::where('assigned_user_id', Auth::user()->id)->where('status', '0')->orderBy('created_at', 'desc')->paginate(10);
             if (count($my_tickets) == 0) {
                 return view('support_ticket.support_tickets.no_ticket');
-            }
-            else {
+            } else {
                 return view('support_ticket.support_tickets.my_tickets', compact('my_tickets'));
             }
-        }
-        else {
+        } else {
             flash(translate('You do not have access permission!'))->warning();
             return back();
         }
@@ -141,35 +138,31 @@ class SupportTicketController extends Controller
             $sort_search = null;
             $support_tickets = SupportTicket::where('status', '1');
             if ($request->search != null || $request->type != null || $request->priority != null) {
-                if ($request->search != null){
-                    $support_tickets = $support_tickets->where('ticket_id', 'like', '%'.$request->search.'%');
+                if ($request->search != null) {
+                    $support_tickets = $support_tickets->where('ticket_id', 'like', '%' . $request->search . '%');
                     $sort_search = $request->search;
                 }
-                if ($request->type != null){
+                if ($request->type != null) {
                     $var = explode(",", $request->type);
                     $col_name = $var[0];
                     $query = $var[1];
                     $support_tickets = $support_tickets->orderBy($col_name, $query);
                 }
-                if ($request->priority != null){
+                if ($request->priority != null) {
                     $priority = $request->priority;
                     $support_tickets = $support_tickets->where('priority', $priority);
                 }
                 $support_tickets = $support_tickets->paginate(12);
-            }
-            else {
+            } else {
                 $support_tickets = $support_tickets->orderBy('created_at', 'desc')->paginate(10);
             }
 
             return view('support_ticket.support_tickets.solved_ticket', compact('support_tickets', 'col_name', 'query', 'sort_search', 'priority'));
-        }
-        else {
+        } else {
             flash(translate('You do not have access permission!'))->warning();
             return back();
         }
     }
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -180,8 +173,8 @@ class SupportTicketController extends Controller
     public function edit($id)
     {
         $support_ticket = SupportTicket::findOrFail(decrypt($id));
-        $employees = UserRole::where('role_id','!=', 2)->where('role_id','!=', 3)->get();
-        return view('support_ticket.support_tickets.edit', compact('employees','support_ticket'));
+        $employees = UserRole::where('role_id', '!=', 2)->where('role_id', '!=', 3)->get();
+        return view('support_ticket.support_tickets.edit', compact('employees', 'support_ticket'));
     }
 
     /**
@@ -200,8 +193,7 @@ class SupportTicketController extends Controller
         if ($support_ticket->save()) {
             flash('Support Ticket has been assigned successfully')->success();
             return redirect()->route('support-tickets.active_ticket');
-        }
-        else {
+        } else {
             flash('Sorry! Something went wrong.')->error();
             return back();
         }
@@ -209,29 +201,47 @@ class SupportTicketController extends Controller
 
     public function ticket_reply(Request $request)
     {
-       // dd($request->all());
+        // dd($request->all());
+
         $support_ticket = SupportTicket::findOrFail($request->support_ticket_id);
-        dd($support_ticket);
-        $ticket_reply                     = new SupportTicketReply;
-        $ticket_reply->support_ticket_id  = $request->support_ticket_id;
-        $ticket_reply->replied_user_id    = Auth::user()->id;
-        $ticket_reply->reply              = $request->reply;
-        $ticket_reply->attachments        = $request->attachments;
+
+        $email = DB::table('users')->where('id', $support_ticket->sender_user_id)->value('email');
+        $users = DB::table('users')->where('id', Auth::user()->id)->value('name');
+
+        $array = array();
+        $array['subject'] = $support_ticket->subject;
+        $array['description'] = $support_ticket->description;
+        $array['reply'] = $request->reply;
+        $array['email'] = $email;
+        $array['users'] = $users;
+        // dd($array);
+
+        Mail::send('/st', ['array' => $array], function ($m) use ($array) {
+            $m->to("mr.bean.mg22@gmail.com")->subject('reply Support Ticket ')->getSwiftMessage()
+                ->getHeaders()
+                ->addTextHeader('x-mailgun-native-send', 'true');
+            $m->from('sub@digi-gate.com', 'مسطر');
+
+        });
+
+        $ticket_reply = new SupportTicketReply;
+        $ticket_reply->support_ticket_id = $request->support_ticket_id;
+        $ticket_reply->replied_user_id = Auth::user()->id;
+        $ticket_reply->reply = $request->reply;
+        $ticket_reply->attachments = $request->attachments;
         if ($ticket_reply->save()) {
             if (UserRole::where('user_id', Auth::user()->id)->first()->role->role_type == 'employee' || UserRole::where('user_id', Auth::user()->id)->first()->role->name == 'Admin') {
-                $support_ticket->status   = $request->status;
+                $support_ticket->status = $request->status;
                 $support_ticket->save();
                 flash('Reply has been sent successfully')->success();
                 return redirect()->route('support-tickets.my_ticket');
-            }
-            else {
+            } else {
                 $support_ticket->status = "0";
                 $support_ticket->save();
                 flash('Reply has been sent successfully')->success();
                 return redirect()->route('support-tickets.user_index');
             }
-        }
-        else {
+        } else {
             flash('Sorry! Something went wrong.')->error();
             return back();
         }
@@ -250,16 +260,14 @@ class SupportTicketController extends Controller
             foreach ($support_ticket->supportTicketReplies as $key => $support_ticket_reply) {
                 $support_ticket_reply->delete();
             }
-            if(SupportTicket::destroy($id)){
+            if (SupportTicket::destroy($id)) {
                 flash(translate('Ticket has been deleted successfully'))->success();
                 return redirect()->route('support-tickets.solved_ticket');
-            }
-            else{
+            } else {
                 flash(translate('Something went wrong'))->error();
                 return back();
             }
-        }
-        else {
+        } else {
             flash(translate('You do not have access permission!'))->warning();
             return back();
         }
