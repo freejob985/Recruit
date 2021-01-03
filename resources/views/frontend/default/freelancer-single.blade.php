@@ -275,14 +275,14 @@
                         <h4 class="h6 fw-600 mb-0">{{ $freelancer->Other_specialties }}'s تخصصات اخري</h4>
                     </div>
                     <div class="card-body">
-                        {{ $freelancer->name }}
-                        <ul class="list-group list-group-flush">
+                       
+                        
                             @foreach ($Other_specialties_array as $key )
                           
                                     <span class="label label-primary">{{ $key  }}</span>&nbsp;
                              
                             @endforeach
-                        </ul>
+                      
                     </div>
                 </div>
 
