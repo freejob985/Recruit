@@ -79,10 +79,8 @@
 
                     </td>
                     <td>
-
-                        <a href="#" class="btn btn-info btn-block" role="button">تعديل</a>
-                        <a href="#" class="btn btn-info btn-block" role="button">حذف</a>
-
+                        <a href="{{ route('Advertisement.edit', ['id'=>$item_ads->id]) }}" class="btn btn-info btn-block" role="button">تعديل</a>
+                        <a href="{{ route('Advertisement.dell', ['id'=>$item_ads->id]) }}" class="btn btn-warning btn-block" role="button">حذف</a>
                     </td>
                 </tr>
                 @endforeach

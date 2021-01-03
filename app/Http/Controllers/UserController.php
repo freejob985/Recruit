@@ -121,6 +121,46 @@ class UserController extends Controller
         return view('admin.default.ads.index', compact('clients', 'sort_search', 'col_name', 'query'));
     }
 
+
+
+    public function Advertisement_edit(Request $request)
+    {
+        //  dd("Catch errors for script and full tracking ( 1 )");
+        $id_ = $this->comprehensive();
+        // dd($id_);
+        $sort_search = null;
+        $col_name = null;
+        $query = null;
+        $clients = UserProfile::where('user_role_id', '3');
+        if ($request->search != null || $request->type != null) {
+            $clients = $clients->paginate(10);
+        } else {
+            $clients = $clients->orderBy('created_at', 'desc')->whereIn('user_id', $id_)->paginate(10);
+        }
+        return view('admin.default.ads.index', compact('clients', 'sort_search', 'col_name', 'query'));
+    }
+
+
+
+    public function Advertisement_dell(Request $request)
+    {
+        //  dd("Catch errors for script and full tracking ( 1 )");
+        $id_ = $this->comprehensive();
+        // dd($id_);
+        $sort_search = null;
+        $col_name = null;
+        $query = null;
+        $clients = UserProfile::where('user_role_id', '3');
+        if ($request->search != null || $request->type != null) {
+            $clients = $clients->paginate(10);
+        } else {
+            $clients = $clients->orderBy('created_at', 'desc')->whereIn('user_id', $id_)->paginate(10);
+        }
+        return view('admin.default.ads.index', compact('clients', 'sort_search', 'col_name', 'query'));
+    }
+
+
+
     public function Advertisement_add(Request $request)
     {
         //  dd("Catch errors for script and full tracking ( 1 )");
