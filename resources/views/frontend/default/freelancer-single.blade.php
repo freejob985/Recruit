@@ -277,6 +277,9 @@
                     <div class="card-body">
                         {{ $freelancer->name }}
                         <ul class="list-group list-group-flush">
+                            @php
+                          //  $Other_specialties=explode(",",$freelancer->Other_specialties);
+                            @endphp
                             @foreach ($freelancer->education_details as $key => $education)
                                 <li class="list-group-item px-0">
                                     <h6 class="fw-600 mb-1 fs-15">{{ $education->degree }}</h6>

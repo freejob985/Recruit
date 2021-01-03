@@ -188,6 +188,9 @@ class HomeController extends Controller
     public function freelancer_details($username)
     {
         $freelancer = User::where('user_name', $username)->first();
+        $Other_specialties = DB::table('user_profiles')->where('user_id', Auth::user()->id)->value('Other_specialties');
+        dd(explode(",",$Other_specialties));
+
         return view('frontend.default.freelancer-single', compact('freelancer'));
     }
 
