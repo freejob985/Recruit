@@ -123,7 +123,7 @@ class UserController extends Controller
 
     public function Advertisement_edit(Request $request, $id)
     {
-       // dd($request->all());
+        dd($request->all());
         DB::table('ads')
             ->where('id', $id)
             ->update([
