@@ -30,7 +30,8 @@
                                 </label>
                                 <input type="text" class="form-control" name="portfolio_name" value="{{ $user_portfolio->name }}" placeholder="Portfolio title">
                             </div>
-
+                           <br>
+                           @if(!empty($item->user->name))
                             <div class="form-group">
                                 <label id="usernameLabel" class="form-label">
                                    رابط
@@ -38,7 +39,7 @@
                                 </label>
                                 <input type="url" class="form-control" name="link" placeholder="link" value="{{ $user_portfolio->link }}">
                             </div>
-
+                            @endif
 
                             <div class="form-group">
                                 <label id="usernameLabel" class="form-label">
