@@ -376,6 +376,118 @@
                     @endif
                 </div>
             </div>
+
+
+
+            <div class="col-xxl-3 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+سسسسسسسسسسسسسسسسسسس
+                        @if ($freelancer->badges != null)
+                        <div class="mb-5">
+                            <h6 class="separator text-left mb-4 fw-600"><span class="bg-white pr-3">{{ translate('Badges') }}</span></h6>
+                            <div class="">
+                                @foreach ($freelancer->badges as $key => $user_badge)
+                                    @if ($user_badge->badge != null)
+                                        <span class="avatar avatar-square avatar-xxs" title="{{ $user_badge->badge->name }}"><img src="{{ my_asset($user_badge->badge->icon) }}"></span>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        @endif
+
+                        <div class="mb-5">
+                            <h6 class="separator text-left mb-4 fw-600"><span class="bg-white pr-3">{{ translate('Skills') }}</span></h6>
+                            <div>
+                                @if( $freelancer->profile->skills != null)
+                                @foreach (json_decode($freelancer->profile->skills, true) as $key => $skill_id)
+                                    @php
+                                        $skill = \App\Models\Skill::find($skill_id);
+                                    @endphp
+                                    @if ($skill)
+                                        <span class="btn btn-light btn-xs mb-1">{{ $skill->name }}</span>
+                                    @endif
+                                @endforeach
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <h6 class="separator text-left mb-4 fw-600"><span class="bg-white pr-3">{{ translate('Verifications') }}</span></h6>
+                            <div>
+                                <ul class="list-unstyled">
+                                    @php
+                                        $verification = \App\Models\Verification::where('user_id', $freelancer->id)->where('type', 'identity_verification')->first();
+                                    @endphp
+                                    @if ($verification == null || !$verification->verified)
+                                        <li class="d-flex align-items-center mb-3">
+                                            <i class="las la-user text-secondary la-2x mr-2"></i>
+                                            <span class="fs-13">{{ translate('Identity Verification') }}</span>
+                                            <i class="las la-ellipsis-h text-secondary la-2x ml-auto"></i>
+                                        </li>
+                                    @else
+                                        <li class="d-flex align-items-center mb-3">
+                                            <i class="las la-user text-success la-2x mr-2"></i>
+                                            <span class="fs-13">{{ translate('Identity Verified') }}</span>
+                                            <i class="las la-check text-success la-2x ml-auto"></i>
+                                        </li>
+                                    @endif
+                                    @if ($freelancer->email_verified_at == null)
+                                        <li class="d-flex align-items-center mb-3">
+                                            <i class="las la-envelope text-secondary la-2x mr-2"></i>
+                                            <span class="fs-13">{{ translate('Email Verification') }}</span>
+                                            <i class="las la-ellipsis-h text-secondary la-2x ml-auto"></i>
+                                        </li>
+                                    @else
+                                        <li class="d-flex align-items-center mb-3">
+                                            <i class="las la-envelope text-success la-2x mr-2"></i>
+                                            <span class="fs-13">{{ translate('Email Verified') }}</span>
+                                            <i class="las la-check text-success la-2x ml-auto"></i>
+                                        </li>
+                                    @endif
+                                    {{-- <li class="d-flex align-items-center mb-3">
+                                        <i class="lab la-facebook text-success la-2x mr-2"></i>
+                                        <span class="fs-13">Facebook Connected</span>
+                                        <i class="las la-check text-success la-2x ml-auto"></i>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="lab la-google text-secondary la-2x mr-2"></i>
+                                        <span class="fs-13">Google Connected</span>
+                                        <i class="las la-ellipsis-h text-secondary la-2x ml-auto"></i>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="lab la-twitter text-secondary la-2x mr-2"></i>
+                                        <span class="fs-13">Twitter Connected</span>
+                                        <i class="las la-ellipsis-h text-secondary la-2x ml-auto"></i>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <i class="lab la-linkedin-in text-secondary la-2x mr-2"></i>
+                                        <span class="fs-13">Linkedin Connected</span>
+                                        <i class="las la-ellipsis-h text-secondary la-2x ml-auto"></i>
+                                    </li> --}}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    @if (Auth::check() && ($bookmarked_freelancer = \App\Models\BookmarkedFreelancer::where('user_id', auth()->user()->id)->where('freelancer_user_id', $freelancer->id)->first()) != null)
+                        <a class="btn btn-block btn-primary confirm-alert" href="javascript:void(0)" data-href="{{ route('bookmarked-freelancers.destroy', $bookmarked_freelancer->id) }}" data-target="#bookmark-remove-modal">
+                            <i class="las la-bookmark"></i>
+                            <span>{{ translate('Remove Bookmark') }}</span>
+                        </a>
+                    @else
+                        <a class="btn btn-block btn-outline-primary" href="{{ route('bookmarked-freelancers.store', encrypt($freelancer->id)) }}">
+                            <i class="las la-bookmark"></i>
+                            <span>{{ translate('Bookmark Freelancer') }}</span>
+                        </a>
+                    @endif
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 </div>
