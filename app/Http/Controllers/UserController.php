@@ -143,8 +143,7 @@ class UserController extends Controller
     public function Advertisement_edit_pag($id)
     {
         $ads= DB::table('ads')->find($id);
-        dd($ads);
-        return view('admin.default.ads.edit');
+        return view('admin.default.ads.edit',compact('ads'));
     }
 
 
