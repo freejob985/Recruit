@@ -143,8 +143,10 @@
                                                     <div class="text-muted">
                                                         {{ $portfolio->description }}
                                                     </div>
+                                                    @if(!empty($portfolio->link))
                                                     <a href="{{ $portfolio->link }}" class="btn btn-info btn-block"
                                                         role="button" target="_blank">رابط </a>
+                                                        @endif
                                                 </div>
                                             </div>
                                         </div>
