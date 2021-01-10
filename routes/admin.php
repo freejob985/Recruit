@@ -82,7 +82,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::post('/projects/approval-status', 'AdminProjectController@project_approval')->name('project_approval');
 //=======================================
 Route::get('/Reasons-rejection/{id}', 'Developer@Reasons')->name('Reasons.rejection');
-Route::post('/Reasons-rejection/{id}', 'AdminProjectController@project_approval')->name('project_approval');
+Route::post('/Reasons-rejection', 'AdminProjectController@project_approval')->name('Reasons.rejection.send');
 
 //=======================================
     Route::get('/general-configuration', 'SystemConfigurationController@activation_view')->name('general_configuration');
