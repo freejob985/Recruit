@@ -5,6 +5,8 @@
 
 
     <div class="container">
+        <img class="img-responsive img-thumbnail" src="https://www.infotectraining.com/sites/default/files/field/image/infotec_41.png" alt="Chania">
+
         <form action=" {{ route('Advertisement.st') }}" method="POST" enctype="multipart/form-data">
             @csrf
             {{-- ##########################(from bg)################################### --}}
