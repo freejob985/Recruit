@@ -27,32 +27,28 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
     public function Transformation($type)
     {
-       // dd($type);
+        // dd($type);
         if (Auth::check()) {
             if ($type == "Freelancer") {
                 dd("Catch errors for script and full tracking ( 3 )");
                 DB::table('user_roles')
-                ->where('user_id', Auth::user()->id)
-                ->update(['role_id' => "2"]);
+                    ->where('user_id', Auth::user()->id)
+                    ->update(['role_id' => "2"]);
             } else {
-                        //     dd(Auth::user()->id);
+                //     dd(Auth::user()->id);
 
                 DB::table('user_roles')
-                ->where('user_id', Auth::user()->id)
-                ->update(['role_id' => "3"]);
+                    ->where('user_id', Auth::user()->id)
+                    ->update(['role_id' => "3"]);
             }
         }
 
-return redirect()->route('dashboard');
+        return redirect()->route('dashboard');
 
     }
 
-
-
-    
     public function index()
     {
         $projects = Project::where('client_user_id', Auth::user()->id)->latest()->paginate(10);
