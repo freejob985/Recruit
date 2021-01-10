@@ -92,6 +92,7 @@
                                             <i class="las la-trash"></i>
                                         </a>
                                     </td>
+                                   <td><a href="#" class="btn btn-warning">اسباب الرفض</a></td> 
                                 </tr>
                             @endforeach
                         </tbody>
