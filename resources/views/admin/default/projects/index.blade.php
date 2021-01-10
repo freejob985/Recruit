@@ -63,6 +63,7 @@
                                 @endif
                                 <th data-breakpoints="md">{{translate('Posted at')}}</th>
                                 <th class="text-right">{{translate('Options')}}</th>
+                                <th class="text-right">الاشعار</th>
                             </tr>
                         </thead>
                         <tbody>

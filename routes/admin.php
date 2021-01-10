@@ -81,8 +81,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/projects/destroy/{id}', 'ProjectController@destroy')->name('delete_project_by_admin');
     Route::post('/projects/approval-status', 'AdminProjectController@project_approval')->name('project_approval');
 //=======================================
-Route::get('/Reasons-rejection', 'Developer@Reasons')->name('Reasons.rejection');
-  
+Route::get('/Reasons-rejection/{id}', 'Developer@Reasons')->name('Reasons.rejection');
+Route::post('/Reasons-rejection/{id}', 'AdminProjectController@project_approval')->name('project_approval');
+
 //=======================================
     Route::get('/general-configuration', 'SystemConfigurationController@activation_view')->name('general_configuration');
     Route::post('/general-configuration-update', 'SystemConfigurationController@updateActivation')->name('system_configuration.update.activation');
