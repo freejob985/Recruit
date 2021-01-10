@@ -80,7 +80,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/cancelled-projects', 'AdminProjectController@cancelled_projects')->name('cancelled_projects');
     Route::get('/projects/destroy/{id}', 'ProjectController@destroy')->name('delete_project_by_admin');
     Route::post('/projects/approval-status', 'AdminProjectController@project_approval')->name('project_approval');
-
+//=======================================
+Route::get('/Reasons-rejection', 'Developer@Reasons')->name('Reasons.rejection');
+  
+//=======================================
     Route::get('/general-configuration', 'SystemConfigurationController@activation_view')->name('general_configuration');
     Route::post('/general-configuration-update', 'SystemConfigurationController@updateActivation')->name('system_configuration.update.activation');
 
@@ -121,7 +124,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/all-clients', 'UserController@all_clients')->name('all_clients');
     ##########
     Route::get('/all/comprehensive', 'UserController@all_comprehensive')->name('all_comprehensive');
-     ##########
+    ##########
     Route::get('/all/Advertisement', 'UserController@Advertisement')->name('Advertisement.admin');
     Route::get('/add/Advertisement', 'UserController@Advertisement_add')->name('Advertisement.add');
     Route::post('/add/Advertisement/st', 'UserController@Advertisement_add__')->name('Advertisement.st');
@@ -129,8 +132,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/Advertisement/edit/{id}', 'UserController@Advertisement_edit_pag')->name('Advertisement.edit');
     Route::get('/Advertisement/dell/{id}', 'UserController@Advertisement_dell')->name('Advertisement.dell');
     Route::post('/Advertisement/updat/{id}', 'UserController@Advertisement_edit')->name('Advertisement.updat');
-
-
 
     Route::get('/client-info/{user_name}', 'UserController@client_details')->name('client_info_show');
 
