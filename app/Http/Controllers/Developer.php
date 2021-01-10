@@ -7,7 +7,11 @@ class Developer extends Controller
 
     public function Reasons()
     {
-        dd("Catch errors for script and full tracking ( 1 )");
+       // dd("Catch errors for script and full tracking ( 1 )");
+
+        return view('admin.default.Developer.rejection');
+
+
     }
 
 }
